@@ -1425,58 +1425,73 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-menu">
-                <div class="menu-title">
-                    <i class="fas fa-bars"></i>
-                    <span>Kategori Produk</span>
-                </div>
-                <a href="#" class="menu-item active" onclick="showCategory('all')">
-                    <i class="fas fa-th-large"></i>
-                    <span>Semua Produk</span>
-                </a>
-                <a href="#" class="menu-item" onclick="showCategory('accounts')">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Akun Game</span>
-                </a>
-                <a href="#" class="menu-item" onclick="showCategory('topup')">
-                    <i class="fas fa-coins"></i>
-                    <span>Top Up Game</span>
-                </a>
-                <a href="#" class="menu-item" onclick="showCategory('rental')">
-                    <i class="fas fa-clock"></i>
-                    <span>Sewa Akun</span>
-                </a>
-                <a href="#" class="menu-item" onclick="showCategory('digital')">
-                    <i class="fas fa-wallet"></i>
-                    <span>Isi Ulang Digital</span>
-                </a>
-                <a href="#" class="menu-item" onclick="showCategory('items')">
-                    <i class="fas fa-box-open"></i>
-                    <span>Item Game</span>
-                </a>
-                
-                <div class="menu-title mt-3">
-                    <i class="fas fa-tags"></i>
-                    <span>Promo & Voucher</span>
-                </div>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-percentage"></i>
-                    <span>Voucher Diskon</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-gift"></i>
-                    <span>Giveaway</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-fire"></i>
-                    <span>Flash Sale</span>
-                </a>
+   <!-- Main Content -->
+<div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-menu">
+            <div class="menu-title">
+                <i class="fas fa-bars"></i>
+                <span>Kategori Produk</span>
             </div>
+            <a href="#" class="menu-item active" onclick="showCategory('all')">
+                <i class="fas fa-th-large"></i>
+                <span>Semua Produk</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('accounts')">
+                <i class="fas fa-user-circle"></i>
+                <span>Akun Game</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('topup')">
+                <i class="fas fa-coins"></i>
+                <span>Top Up Game</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('rental')">
+                <i class="fas fa-clock"></i>
+                <span>Sewa Akun</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('digital')">
+                <i class="fas fa-wallet"></i>
+                <span>Isi Ulang Digital</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('items')">
+                <i class="fas fa-box-open"></i>
+                <span>Item Game</span>
+            </a>
+
+            <div class="menu-title mt-3">
+                <i class="fas fa-tags"></i>
+                <span>Promo & Voucher</span>
+            </div>
+            <a href="#" class="menu-item" onclick="showCategory('voucher')">
+                <i class="fas fa-percentage"></i>
+                <span>Voucher Diskon</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('giveaway')">
+                <i class="fas fa-gift"></i>
+                <span>Giveaway</span>
+            </a>
+            <a href="#" class="menu-item" onclick="showCategory('flashsale')">
+                <i class="fas fa-fire"></i>
+                <span>Flash Sale</span>
+            </a>
         </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        <div id="category-all" class="category-content">Semua Produk akan tampil di sini.</div>
+        <div id="category-accounts" class="category-content" style="display:none;">Konten Akun Game</div>
+        <div id="category-topup" class="category-content" style="display:none;">Konten Top Up Game</div>
+        <div id="category-rental" class="category-content" style="display:none;">Konten Sewa Akun</div>
+        <div id="category-digital" class="category-content" style="display:none;">Konten Isi Ulang Digital</div>
+        <div id="category-items" class="category-content" style="display:none;">Konten Item Game</div>
+        <div id="category-voucher" class="category-content" style="display:none;">Konten Voucher Diskon</div>
+        <div id="category-giveaway" class="category-content" style="display:none;">Konten Giveaway</div>
+        <div id="category-flashsale" class="category-content" style="display:none;">Konten Flash Sale</div>
+    </div>
+</div>
+
         
         <!-- Content -->
         <div class="content">
@@ -2602,5 +2617,29 @@
         // Initialize the app when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
+      <script>
+function showCategory(category) {
+    // Sembunyikan semua kategori
+    const contents = document.querySelectorAll('.category-content');
+    contents.forEach(content => content.style.display = 'none');
+
+    // Hapus status 'active' dari semua menu
+    const menus = document.querySelectorAll('.menu-item');
+    menus.forEach(menu => menu.classList.remove('active'));
+
+    // Tampilkan kategori yang dipilih
+    const selected = document.getElementById(`category-${category}`);
+    if (selected) {
+        selected.style.display = 'block';
+    }
+
+    // Tambahkan class active ke menu yang dipilih
+    const activeMenu = Array.from(menus).find(menu => menu.getAttribute('onclick')?.includes(category));
+    if (activeMenu) {
+        activeMenu.classList.add('active');
+    }
+}
+</script>
+
 </body>
 </html>
