@@ -1,0 +1,2606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zallshop - All-in-One Gaming Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        /* Global Variables */
+        :root {
+            --primary: #FF6B00;
+            --secondary: #00B0FF;
+            --dark: #1A1A2E;
+            --darker: #16213E;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --success: #28A745;
+            --danger: #DC3545;
+            --warning: #FD7E14;
+            --info: #17A2B8;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E05D00;
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+
+        .gap-1 {
+            gap: 0.5rem;
+        }
+
+        .gap-2 {
+            gap: 1rem;
+        }
+
+        .gap-3 {
+            gap: 1.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .text-secondary {
+            color: var(--secondary);
+        }
+
+        .text-success {
+            color: var(--success);
+        }
+
+        .text-danger {
+            color: var(--danger);
+        }
+
+        .text-warning {
+            color: var(--warning);
+        }
+
+        .text-muted {
+            color: var(--gray);
+        }
+
+        .fw-bold {
+            font-weight: 600;
+        }
+
+        .fw-bolder {
+            font-weight: 700;
+        }
+
+        .rounded {
+            border-radius: 8px;
+        }
+
+        .rounded-circle {
+            border-radius: 50%;
+        }
+
+        .shadow {
+            box-shadow: var(--shadow);
+        }
+
+        .transition {
+            transition: var(--transition);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #E05D00;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0095E0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 176, 255, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-lg {
+            padding: 0.8rem 1.6rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: 50%;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .badge-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .badge-success {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .badge-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .badge-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            margin: 0 1.5rem;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.6rem 1rem;
+            padding-right: 3rem;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .nav-icon:hover {
+            color: var(--primary);
+        }
+
+        .nav-icon i {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sidebar {
+            width: 250px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        /* Sidebar */
+        .sidebar-menu {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .menu-title {
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .menu-item:hover {
+            background-color: rgba(255, 107, 0, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item i {
+            width: 24px;
+            text-align: center;
+            margin-right: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .menu-item.active {
+            background-color: rgba(255, 107, 0, 0.1);
+            color: var(--primary);
+            border-left: 3px solid var(--primary);
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .banner-close:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 0.5rem;
+            background-color: rgba(255, 107, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .category-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Flash Sale */
+        .flash-sale {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .countdown {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 30px;
+        }
+
+        .countdown-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .countdown-label {
+            font-size: 0.6rem;
+            opacity: 0.8;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            z-index: 1;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1rem;
+        }
+
+        .product-name {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 2.8em;
+        }
+
+        .product-price {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-original-price {
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+
+        .product-discount {
+            font-size: 0.8rem;
+            color: var(--danger);
+            font-weight: 500;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .product-rating i {
+            color: #FFC107;
+            margin-right: 0.3rem;
+        }
+
+        .product-sold {
+            color: var(--gray);
+            margin-left: 0.5rem;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            margin-top: 0.8rem;
+            padding: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        /* Top Up Section */
+        .topup-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .game-list {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .game-item {
+            flex: 0 0 auto;
+            width: 80px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .game-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 0.5rem;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+
+        .game-item.active .game-icon {
+            border-color: var(--primary);
+        }
+
+        .game-name {
+            font-size: 0.8rem;
+        }
+
+        .denomination-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .denomination-card {
+            background-color: #F8F9FA;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #ddd;
+        }
+
+        .denomination-card:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+
+        .denomination-card.active {
+            border-color: var(--primary);
+            background-color: rgba(255, 107, 0, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.2);
+        }
+
+        .denomination-amount {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .denomination-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .denomination-bonus {
+            font-size: 0.8rem;
+            color: var(--success);
+            margin-top: 0.3rem;
+        }
+
+        /* Digital Services */
+        .digital-services {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .bank-list {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+        }
+
+        .bank-item {
+            background-color: #F8F9FA;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #ddd;
+        }
+
+        .bank-item:hover {
+            border-color: var(--primary);
+            background-color: rgba(255, 107, 0, 0.05);
+        }
+
+        .bank-logo {
+            width: 60px;
+            height: 30px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+
+        .bank-name {
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-link a {
+            color: #B0B0B0;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-link a:hover {
+            color: white;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: #B0B0B0;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        /* Login/Signup Form */
+        .auth-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .auth-form .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .auth-form .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            color: var(--primary);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--gray);
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #eee;
+            margin: 0 1rem;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-google {
+            background-color: white;
+            border: 1px solid #ddd;
+            color: #333;
+        }
+
+        .btn-google:hover {
+            background-color: #f5f5f5;
+        }
+
+        .btn-facebook {
+            background-color: #3B5998;
+            color: white;
+        }
+
+        .btn-facebook:hover {
+            background-color: #344E86;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Product Detail */
+        .product-detail {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .product-gallery {
+            width: 400px;
+            flex-shrink: 0;
+        }
+
+        .product-main-image {
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background-color: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .product-thumbnail {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            background-color: white;
+            border-radius: 4px;
+            padding: 0.25rem;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            transition: var(--transition);
+        }
+
+        .product-thumbnail:hover {
+            border-color: var(--primary);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .product-rating-stars {
+            color: #FFC107;
+            margin-right: 0.5rem;
+        }
+
+        .product-rating-count {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .product-price-container {
+            background-color: #F8F9FA;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .product-original-price {
+            font-size: 1.2rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+
+        .product-discount {
+            font-size: 1rem;
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .product-stock {
+            color: var(--success);
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: #f5f5f5;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            border: none;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Cart Page */
+        .cart-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .cart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .cart-items {
+            margin-bottom: 1.5rem;
+        }
+
+        .cart-item {
+            display: flex;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-right: 1rem;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .cart-item-remove {
+            color: var(--danger);
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .cart-summary {
+            background-color: #F8F9FA;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .summary-total {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .bank-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .header-container {
+                padding: 0.75rem 1rem;
+            }
+            
+            .search-bar {
+                margin: 0 1rem;
+            }
+            
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .categories {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-detail {
+                flex-direction: column;
+            }
+            
+            .product-gallery {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-icons {
+                gap: 1rem;
+            }
+            
+            .nav-icon span {
+                display: none;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .bank-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo span {
+                display: none;
+            }
+            
+            .search-bar {
+                margin: 0 0.5rem;
+            }
+            
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bank-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .quantity-selector {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .animate-slide-up {
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <i class="fas fa-gamepad"></i>
+                <span>GameHub</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Cari akun game, top up, atau produk...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="nav-icons">
+                <a href="#" class="nav-icon" onclick="showPage('home')">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="nav-icon" onclick="showAuthModal('login')">
+                    <i class="fas fa-user"></i>
+                    <span>Login</span>
+                </a>
+                <a href="#" class="nav-icon" onclick="showPage('wishlist')">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                </a>
+                <a href="#" class="nav-icon" onclick="showPage('cart')">
+                    <div style="position: relative;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                    <span>Cart</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-title">
+                    <i class="fas fa-bars"></i>
+                    <span>Kategori Produk</span>
+                </div>
+                <a href="#" class="menu-item active" onclick="showCategory('all')">
+                    <i class="fas fa-th-large"></i>
+                    <span>Semua Produk</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('accounts')">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Akun Game</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('topup')">
+                    <i class="fas fa-coins"></i>
+                    <span>Top Up Game</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('rental')">
+                    <i class="fas fa-clock"></i>
+                    <span>Sewa Akun</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('digital')">
+                    <i class="fas fa-wallet"></i>
+                    <span>Isi Ulang Digital</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('items')">
+                    <i class="fas fa-box-open"></i>
+                    <span>Item Game</span>
+                </a>
+                
+                <div class="menu-title mt-3">
+                    <i class="fas fa-tags"></i>
+                    <span>Promo & Voucher</span>
+                </div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-percentage"></i>
+                    <span>Voucher Diskon</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Giveaway</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-fire"></i>
+                    <span>Flash Sale</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Hero Banner with Close Button -->
+            <div class="hero-banner animate-slide-up" id="promo-banner">
+                <img src="https://via.placeholder.com/1200x300/FF6B00/FFFFFF?text=Special+Promo+70%25+Off+Game+Accounts" alt="Promo Banner">
+                <button class="banner-close" onclick="closeBanner()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <!-- Quick Categories -->
+            <div class="categories animate-fade">
+                <div class="category-card" onclick="showCategory('valorant')">
+                    <div class="category-icon">
+                        <i class="fas fa-crosshairs"></i>
+                    </div>
+                    <div class="category-name">Valorant</div>
+                </div>
+                <div class="category-card" onclick="showCategory('genshin')">
+                    <div class="category-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="category-name">Genshin Impact</div>
+                </div>
+                <div class="category-card" onclick="showCategory('mlbb')">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="category-name">Mobile Legends</div>
+                </div>
+                <div class="category-card" onclick="showCategory('pubg')">
+                    <div class="category-icon">
+                        <i class="fas fa-parachute-box"></i>
+                    </div>
+                    <div class="category-name">PUBG</div>
+                </div>
+                <div class="category-card" onclick="showCategory('lol')">
+                    <div class="category-icon">
+                        <i class="fas fa-chess-rook"></i>
+                    </div>
+                    <div class="category-name">League of Legends</div>
+                </div>
+            </div>
+            
+            <!-- Flash Sale Section -->
+            <div class="flash-sale animate-slide-up">
+                <div class="section-header">
+                    <h2 class="section-title">Flash Sale <span class="text-danger">🔥</span></h2>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-value">12</div>
+                            <div class="countdown-label">Jam</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">45</div>
+                            <div class="countdown-label">Menit</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-value">30</div>
+                            <div class="countdown-label">Detik</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card" onclick="showProductDetail(1)">
+                        <div class="product-badge">
+                            <span class="badge-danger">70%</span>
+                        </div>
+                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Valorant+Radiant" class="product-image" alt="Valorant Radiant Account">
+                        <div class="product-info">
+                            <h3 class="product-name">Akun Valorant Radiant (Top 500)</h3>
+                            <div>
+                                <span class="product-price">Rp 2.500.000</span>
+                                <span class="product-original-price">Rp 8.000.000</span>
+                                <span class="product-discount">70%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="product-rating-count">(128)</span>
+                                <span class="product-sold">Terjual 45</span>
+                            </div>
+                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(2)">
+                        <div class="product-badge">
+                            <span class="badge-danger">50%</span>
+                        </div>
+                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Genshin+AR60" class="product-image" alt="Genshin Impact AR60">
+                        <div class="product-info">
+                            <h3 class="product-name">Akun Genshin Impact AR 60</h3>
+                            <div>
+                                <span class="product-price">Rp 3.500.000</span>
+                                <span class="product-original-price">Rp 7.000.000</span>
+                                <span class="product-discount">50%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="product-rating-count">(95)</span>
+                                <span class="product-sold">Terjual 32</span>
+                            </div>
+                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(3)">
+                        <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=MLBB+100+Skin" class="product-image" alt="Mobile Legends 100 Skin">
+                        <div class="product-info">
+                            <h3 class="product-name">Akun Mobile Legends 100+ Skin</h3>
+                            <div>
+                                <span class="product-price">Rp 1.200.000</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="product-rating-count">(210)</span>
+                                <span class="product-sold">Terjual 78</span>
+                            </div>
+                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(4)">
+                        <div class="product-badge">
+                            <span class="badge-danger">30%</span>
+                        </div>
+                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=LoL+Challenger" class="product-image" alt="LoL Challenger">
+                        <div class="product-info">
+                            <h3 class="product-name">Akun LoL Challenger 800LP</h3>
+                            <div>
+                                <span class="product-price">Rp 5.000.000</span>
+                                <span class="product-original-price">Rp 7.150.000</span>
+                                <span class="product-discount">30%</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="product-rating-count">(64)</span>
+                                <span class="product-sold">Terjual 18</span>
+                            </div>
+                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(5)">
+                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Fortnite+OG" class="product-image" alt="Fortnite OG">
+                        <div class="product-info">
+                            <h3 class="product-name">Akun Fortnite OG Skins</h3>
+                            <div>
+                                <span class="product-price">Rp 3.200.000</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="product-rating-count">(42)</span>
+                                <span class="product-sold">Terjual 15</span>
+                            </div>
+                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Top Up Section -->
+            <div class="topup-section animate-fade">
+                <div class="section-header">
+                    <h2 class="section-title">Top Up Game <span class="text-primary"><i class="fas fa-bolt"></i></span></h2>
+                    <a href="#" class="text-primary">Lihat Semua</a>
+                </div>
+                
+                <div class="game-list">
+                    <div class="game-item active" onclick="selectGame('valorant')">
+                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=V" class="game-icon" alt="Valorant">
+                        <div class="game-name">Valorant</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('genshin')">
+                        <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=G" class="game-icon" alt="Genshin">
+                        <div class="game-name">Genshin</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('mlbb')">
+                        <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=ML" class="game-icon" alt="MLBB">
+                        <div class="game-name">MLBB</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('pubg')">
+                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=BG" class="game-icon" alt="PUBG">
+                        <div class="game-name">PUBG</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('lol')">
+                        <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=LoL" class="game-icon" alt="LoL">
+                        <div class="game-name">LoL</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('cod')">
+                        <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=COD" class="game-icon" alt="COD">
+                        <div class="game-name">COD</div>
+                    </div>
+                    <div class="game-item" onclick="selectGame('ff')">
+                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=FF" class="game-icon" alt="FF">
+                        <div class="game-name">Free Fire</div>
+                    </div>
+                </div>
+                
+                <div class="denomination-grid">
+                    <div class="denomination-card active">
+                        <div class="denomination-amount">1000 VP</div>
+                        <div class="denomination-price">Rp 120.000</div>
+                        <div class="denomination-bonus">+ Bonus 50 VP</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">2050 VP</div>
+                        <div class="denomination-price">Rp 240.000</div>
+                        <div class="denomination-bonus">+ Bonus 150 VP</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">3400 VP</div>
+                        <div class="denomination-price">Rp 360.000</div>
+                        <div class="denomination-bonus">+ Bonus 300 VP</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">5500 VP</div>
+                        <div class="denomination-price">Rp 600.000</div>
+                        <div class="denomination-bonus">+ Bonus 600 VP</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <button class="btn-primary">Beli Sekarang</button>
+                </div>
+            </div>
+            
+            <!-- Account Rental Section -->
+            <div class="flash-sale animate-fade">
+                <div class="section-header">
+                    <h2 class="section-title">Sewa Akun Game <span class="text-secondary"><i class="fas fa-clock"></i></span></h2>
+                    <a href="#" class="text-primary">Lihat Semua</a>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card" onclick="showProductDetail(6)">
+                        <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=Valo+Radiant" class="product-image" alt="Valorant Radiant">
+                        <div class="product-info">
+                            <h3 class="product-name">Sewa Akun Valorant Radiant</h3>
+                            <div>
+                                <span class="product-price">Rp 50.000/jam</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="product-rating-count">(87)</span>
+                                <span class="product-sold">Disewa 120x</span>
+                            </div>
+                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(7)">
+                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Genshin+C6" class="product-image" alt="Genshin C6">
+                        <div class="product-info">
+                            <h3 class="product-name">Sewa Akun Genshin C6 5*</h3>
+                            <div>
+                                <span class="product-price">Rp 75.000/jam</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="product-rating-count">(45)</span>
+                                <span class="product-sold">Disewa 65x</span>
+                            </div>
+                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card" onclick="showProductDetail(8)">
+                        <div class="product-badge">
+                            <span class="badge-primary">Promo</span>
+                        </div>
+                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=LoL+Chall" class="product-image" alt="LoL Challenger">
+                        <div class="product-info">
+                            <h3 class="product-name">Sewa Akun LoL Challenger</h3>
+                            <div>
+                                <span class="product-price">Rp 100.000/jam</span>
+                            </div>
+                            <div class="product-rating">
+                                <div class="product-rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="product-rating-count">(32)</span>
+                                <span class="product-sold">Disewa 48x</span>
+                            </div>
+                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Digital Services Section -->
+            <div class="digital-services animate-fade">
+                <div class="section-header">
+                    <h2 class="section-title">Isi Ulang Digital <span class="text-success"><i class="fas fa-wallet"></i></span></h2>
+                    <a href="#" class="text-primary">Lihat Semua</a>
+                </div>
+                
+                <div class="bank-list">
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=DANA" class="bank-logo" alt="DANA">
+                        <div class="bank-name">DANA</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=OVO" class="bank-logo" alt="OVO">
+                        <div class="bank-name">OVO</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Gopay" class="bank-logo" alt="Gopay">
+                        <div class="bank-name">Gopay</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=LinkAja" class="bank-logo" alt="LinkAja">
+                        <div class="bank-name">LinkAja</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BCA" class="bank-logo" alt="BCA">
+                        <div class="bank-name">BCA</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Mandiri" class="bank-logo" alt="Mandiri">
+                        <div class="bank-name">Mandiri</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=BNI" class="bank-logo" alt="BNI">
+                        <div class="bank-name">BNI</div>
+                    </div>
+                    <div class="bank-item">
+                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BRI" class="bank-logo" alt="BRI">
+                        <div class="bank-name">BRI</div>
+                    </div>
+                </div>
+                
+                <div class="denomination-grid mt-3">
+                    <div class="denomination-card">
+                        <div class="denomination-amount">50.000</div>
+                        <div class="denomination-price">Rp 50.000</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">100.000</div>
+                        <div class="denomination-price">Rp 100.000</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">150.000</div>
+                        <div class="denomination-price">Rp 150.000</div>
+                    </div>
+                    <div class="denomination-card">
+                        <div class="denomination-amount">200.000</div>
+                        <div class="denomination-price">Rp 200.000</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <button class="btn-primary">Isi Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-title">GameHub</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Tentang Kami</a></li>
+                        <li class="footer-link"><a href="#">Karir</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Kebijakan Privasi</a></li>
+                        <li class="footer-link"><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Beli</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Akun Game</a></li>
+                        <li class="footer-link"><a href="#">Top Up Game</a></li>
+                        <li class="footer-link"><a href="#">Sewa Akun</a></li>
+                        <li class="footer-link"><a href="#">Item Game</a></li>
+                        <li class="footer-link"><a href="#">Voucher Game</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Bantuan</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Pusat Bantuan</a></li>
+                        <li class="footer-link"><a href="#">Cara Pembelian</a></li>
+                        <li class="footer-link"><a href="#">Pengembalian</a></li>
+                        <li class="footer-link"><a href="#">Hubungi Kami</a></li>
+                        <li class="footer-link"><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-title">Hubungi Kami</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#"><i class="fas fa-envelope"></i> support@gamehub.id</a></li>
+                        <li class="footer-link"><a href="#"><i class="fas fa-phone"></i> +62 812-3456-7890</a></li>
+                        <li class="footer-link"><a href="#"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</a></li>
+                    </ul>
+                    
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 GameHub. All rights reserved. All trademarks are property of their respective owners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Login ke GameHub</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form" id="modal-login-form">
+                    <div class="form-group">
+                        <label for="modal-email">Email</label>
+                        <input type="email" id="modal-email" class="form-control" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-password">Password</label>
+                        <input type="password" id="modal-password" class="form-control" placeholder="Masukkan password" required>
+                        <a href="#" class="forgot-password">Lupa password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Login</button>
+                    
+                    <div class="auth-divider">
+                        <span>atau login dengan</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="btn-social btn-google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="btn-social btn-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Belum punya akun? <a href="#" onclick="showAuthModal('register')">Daftar sekarang</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="register-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Daftar Akun GameHub</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form" id="modal-register-form">
+                    <div class="form-group">
+                        <label for="modal-name">Nama Lengkap</label>
+                        <input type="text" id="modal-name" class="form-control" placeholder="Masukkan nama lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-register-email">Email</label>
+                        <input type="email" id="modal-register-email" class="form-control" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-register-password">Password</label>
+                        <input type="password" id="modal-register-password" class="form-control" placeholder="Buat password (min. 8 karakter)" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal-confirm-password">Konfirmasi Password</label>
+                        <input type="password" id="modal-confirm-password" class="form-control" placeholder="Ulangi password Anda" required>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">Daftar Sekarang</button>
+                    
+                    <div class="auth-divider">
+                        <span>atau daftar dengan</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="btn-social btn-google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="btn-social btn-facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        Sudah punya akun? <a href="#" onclick="showAuthModal('login')">Login sekarang</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content" style="max-width: 900px;">
+            <div class="modal-header">
+                <h3 class="modal-title">Detail Produk</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-detail">
+                    <div class="product-gallery">
+                        <img src="https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Product+Image" class="product-main-image" alt="Product Image" id="product-main-image">
+                        <div class="product-thumbnails">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=1" class="product-thumbnail" onclick="changeProductImage(this)">
+                            <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=2" class="product-thumbnail" onclick="changeProductImage(this)">
+                            <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=3" class="product-thumbnail" onclick="changeProductImage(this)">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=4" class="product-thumbnail" onclick="changeProductImage(this)">
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h1 class="product-title" id="product-detail-title">Akun Valorant Radiant (Top 500)</h1>
+                        <div class="product-rating">
+                            <div class="product-rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="product-rating-count">128 ulasan</span>
+                            <span class="product-sold">45 terjual</span>
+                        </div>
+                        
+                        <div class="product-price-container">
+                            <div>
+                                <span class="product-price" id="product-detail-price">Rp 2.500.000</span>
+                                <span class="product-original-price">Rp 8.000.000</span>
+                                <span class="product-discount">70%</span>
+                            </div>
+                            <div class="product-stock">
+                                <i class="fas fa-check-circle"></i> Stok tersedia
+                            </div>
+                        </div>
+                        
+                        <div class="product-description">
+                            <h3>Deskripsi Produk</h3>
+                            <p id="product-detail-description">
+                                Akun Valorant dengan rank Radiant (Top 500), memiliki semua agent yang sudah di-unlock dan berbagai skin premium seperti Elderflame, Reaver, dan Prime. Akun sudah terverifikasi email dan bisa diganti emailnya. Sudah termasuk 1000+ VP sisa.
+                            </p>
+                            
+                            <h3 style="margin-top: 1.5rem;">Detail Akun</h3>
+                            <ul id="product-detail-features">
+                                <li>Rank Radiant (Top 500)</li>
+                                <li>Semua agent unlocked</li>
+                                <li>50+ skin premium</li>
+                                <li>1000+ VP sisa</li>
+                                <li>Email bisa diganti</li>
+                                <li>Level 250+</li>
+                                <li>Battlepass season 1-5 complete</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" onclick="decreaseQuantity()">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1" id="product-quantity">
+                                <button class="quantity-btn" onclick="increaseQuantity()">+</button>
+                            </div>
+                            <button class="btn-primary btn-lg" onclick="addToCartFromModal()">
+                                <i class="fas fa-shopping-cart"></i> Tambahkan ke Keranjang
+                            </button>
+                            <button class="btn-outline btn-lg" onclick="buyNow()">
+                                Beli Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Page (hidden by default) -->
+    <div class="main-container hidden" id="cart-page-content">
+        <div class="content">
+            <div class="cart-container">
+                <div class="cart-header">
+                    <h1 class="cart-title">Keranjang Belanja</h1>
+                    <span>3 item</span>
+                </div>
+                
+                <div class="cart-items">
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80x80/1A1A2E/FFFFFF?text=V" class="cart-item-image" alt="Valorant Account">
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Akun Valorant Radiant (Top 500)</h3>
+                            <div class="cart-item-price">Rp 2.500.000</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn btn-sm">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn btn-sm">+</button>
+                            </div>
+                            <span class="cart-item-remove">Hapus</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80x80/16213E/FFFFFF?text=G" class="cart-item-image" alt="Genshin Account">
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Akun Genshin Impact AR 60</h3>
+                            <div class="cart-item-price">Rp 3.500.000</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn btn-sm">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn btn-sm">+</button>
+                            </div>
+                            <span class="cart-item-remove">Hapus</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-item">
+                        <img src="https://via.placeholder.com/80x80/0F3460/FFFFFF?text=VP" class="cart-item-image" alt="Valorant Points">
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-title">Top Up Valorant 3400 VP</h3>
+                            <div class="cart-item-price">Rp 360.000</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn btn-sm">-</button>
+                                <input type="number" class="quantity-input" value="1" min="1">
+                                <button class="quantity-btn btn-sm">+</button>
+                            </div>
+                            <span class="cart-item-remove">Hapus</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>Rp 6.360.000</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Diskon</span>
+                        <span class="text-success">-Rp 500.000</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Biaya Admin</span>
+                        <span>Rp 5.000</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span class="text-primary">Rp 5.865.000</span>
+                    </div>
+                    
+                    <button class="checkout-btn btn-primary btn-lg">
+                        <i class="fas fa-credit-card"></i> Proses Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product Data
+        const products = [
+            {
+                id: 1,
+                name: "Akun Valorant Radiant (Top 500)",
+                category: "accounts",
+                game: "Valorant",
+                price: 2500000,
+                originalPrice: 8000000,
+                discount: 70,
+                rating: 4.5,
+                reviewCount: 128,
+                sold: 45,
+                images: [
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Valo+Radiant",
+                    "https://via.placeholder.com/400x400/16213E/FFFFFF?text=Valo+2",
+                    "https://via.placeholder.com/400x400/0F3460/FFFFFF?text=Valo+3",
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Valo+4"
+                ],
+                description: "Akun Valorant dengan rank Radiant (Top 500), memiliki semua agent yang sudah di-unlock dan berbagai skin premium seperti Elderflame, Reaver, dan Prime. Akun sudah terverifikasi email dan bisa diganti emailnya. Sudah termasuk 1000+ VP sisa.",
+                features: [
+                    "Rank Radiant (Top 500)",
+                    "Semua agent unlocked",
+                    "50+ skin premium",
+                    "1000+ VP sisa",
+                    "Email bisa diganti",
+                    "Level 250+",
+                    "Battlepass season 1-5 complete"
+                ],
+                stock: 5
+            },
+            {
+                id: 2,
+                name: "Akun Genshin Impact AR 60",
+                category: "accounts",
+                game: "Genshin Impact",
+                price: 3500000,
+                originalPrice: 7000000,
+                discount: 50,
+                rating: 4,
+                reviewCount: 95,
+                sold: 32,
+                images: [
+                    "https://via.placeholder.com/400x400/16213E/FFFFFF?text=Genshin+AR60",
+                    "https://via.placeholder.com/400x400/0F3460/FFFFFF?text=Genshin+2",
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Genshin+3"
+                ],
+                description: "Akun Genshin Impact AR 60 dengan 10 karakter 5* termasuk Zhongli, Raiden Shogun, dan Hu Tao. Juga memiliki beberapa senjata 5* seperti Staff of Homa dan Mistsplitter Reforged. Akun aman dan terjamin, email bisa diganti.",
+                features: [
+                    "AR 60 (Max Level)",
+                    "10 karakter 5*",
+                    "5 senjata 5*",
+                    "Primogem 5000+",
+                    "Fragile Resin 20+",
+                    "Spiral Abyss 36*",
+                    "Email bisa diganti"
+                ],
+                stock: 3
+            },
+            {
+                id: 3,
+                name: "Akun Mobile Legends 100+ Skin",
+                category: "accounts",
+                game: "Mobile Legends",
+                price: 1200000,
+                originalPrice: 1200000,
+                discount: 0,
+                rating: 5,
+                reviewCount: 210,
+                sold: 78,
+                images: [
+                    "https://via.placeholder.com/400x400/0F3460/FFFFFF?text=ML+100+Skin",
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=ML+2"
+                ],
+                description: "Akun Mobile Legends dengan koleksi 100+ skin lengkap termasuk skin legend dan special. Sudah termasuk semua hero dan memiliki banyak emblem level 60. Akun aman dan original, tidak pernah dijual sebelumnya.",
+                features: [
+                    "100+ skin lengkap",
+                    "Semua hero unlocked",
+                    "Emblem level 60+",
+                    "Mythic rank season terakhir",
+                    "Diamond 5000+",
+                    "Email bisa diganti",
+                    "Garansi aman 100%"
+                ],
+                stock: 7
+            },
+            {
+                id: 4,
+                name: "Top Up Valorant 3400 VP",
+                category: "topup",
+                game: "Valorant",
+                price: 360000,
+                originalPrice: 360000,
+                discount: 0,
+                rating: 4.5,
+                reviewCount: 64,
+                sold: 18,
+                images: [
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Valo+3400VP",
+                    "https://via.placeholder.com/400x400/16213E/FFFFFF?text=Valo+Topup"
+                ],
+                description: "Top Up Valorant Points (VP) 3400 + Bonus 300 VP. Proses cepat dalam 5 menit setelah pembayaran. Harga sudah termasuk semua biaya. Bisa digunakan untuk semua region.",
+                features: [
+                    "3400 Valorant Points",
+                    "+ Bonus 300 VP",
+                    "Proses 5 menit",
+                    "Semua region",
+                    "Garansi 100%",
+                    "Harga termurah",
+                    "Customer support 24/7"
+                ],
+                stock: 99
+            },
+            {
+                id: 5,
+                name: "Sewa Akun Valorant Radiant",
+                category: "rental",
+                game: "Valorant",
+                price: 50000,
+                originalPrice: 50000,
+                discount: 0,
+                rating: 5,
+                reviewCount: 87,
+                sold: 120,
+                images: [
+                    "https://via.placeholder.com/400x400/0F3460/FFFFFF?text=Sewa+Valo",
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Sewa+2"
+                ],
+                description: "Sewa akun Valorant Radiant per jam. Bisa digunakan untuk latihan atau streaming. Akun dilengkapi dengan semua agent dan banyak skin premium. Harga sudah termasuk garansi keamanan.",
+                features: [
+                    "Rank Radiant",
+                    "Semua agent unlocked",
+                    "50+ skin premium",
+                    "Sewa per jam",
+                    "Bisa streaming",
+                    "Garansi aman",
+                    "Support 24/7"
+                ],
+                stock: 2
+            }
+        ];
+
+        // App State
+        let currentUser = null;
+        let cartItems = [];
+        let currentProduct = null;
+        let selectedGame = 'valorant';
+        let selectedCategory = 'all';
+        let promoBannerClosed = localStorage.getItem('promoBannerClosed') === 'true';
+
+        // DOM Elements
+        const loginModal = document.getElementById('login-modal');
+        const registerModal = document.getElementById('register-modal');
+        const productModal = document.getElementById('product-modal');
+        const cartPage = document.getElementById('cart-page-content');
+        const promoBanner = document.getElementById('promo-banner');
+        const cartCountElement = document.querySelector('.cart-count');
+
+        // Initialize the app
+        function init() {
+            // Check if promo banner was closed
+            if (promoBannerClosed) {
+                promoBanner.style.display = 'none';
+            }
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Update cart count
+            updateCartCount();
+        }
+
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Login form
+            document.getElementById('modal-login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('modal-email').value;
+                const password = document.getElementById('modal-password').value;
+                login(email, password);
+            });
+            
+            // Register form
+            document.getElementById('modal-register-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('modal-name').value;
+                const email = document.getElementById('modal-register-email').value;
+                const password = document.getElementById('modal-register-password').value;
+                const confirmPassword = document.getElementById('modal-confirm-password').value;
+                
+                if (password !== confirmPassword) {
+                    alert('Password dan konfirmasi password tidak sama!');
+                    return;
+                }
+                
+                register(name, email, password);
+            });
+            
+            // Add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.closest('.product-card').getAttribute('data-id'));
+                    addToCart(productId, 1);
+                });
+            });
+        }
+
+        // Show auth modal (login or register)
+        function showAuthModal(type) {
+            closeModal(); // Close any open modal first
+            
+            if (type === 'login') {
+                loginModal.classList.add('active');
+            } else if (type === 'register') {
+                registerModal.classList.add('active');
+            }
+        }
+
+        // Close modal
+        function closeModal() {
+            loginModal.classList.remove('active');
+            registerModal.classList.remove('active');
+            productModal.classList.remove('active');
+        }
+
+        // Show product detail modal
+        function showProductDetail(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
+            
+            // Update modal content
+            document.getElementById('product-detail-title').textContent = currentProduct.name;
+            document.getElementById('product-detail-price').textContent = formatPrice(currentProduct.price);
+            document.getElementById('product-detail-description').textContent = currentProduct.description;
+            
+            // Update features list
+            const featuresList = document.getElementById('product-detail-features');
+            featuresList.innerHTML = '';
+            currentProduct.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            // Update main image
+            const mainImage = document.getElementById('product-main-image');
+            if (currentProduct.images.length > 0) {
+                mainImage.src = currentProduct.images[0];
+            }
+            
+            // Show modal
+            productModal.classList.add('active');
+        }
+
+        // Change product image in detail modal
+        function changeProductImage(thumbnail) {
+            const mainImage = document.getElementById('product-main-image');
+            mainImage.src = thumbnail.src.replace('60x60', '400x400');
+        }
+
+        // Close promo banner
+        function closeBanner() {
+            promoBanner.style.display = 'none';
+            localStorage.setItem('promoBannerClosed', 'true');
+            promoBannerClosed = true;
+        }
+
+        // Select game for top up
+        function selectGame(game) {
+            selectedGame = game;
+            
+            // Update UI
+            document.querySelectorAll('.game-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // In a real app, you would load game-specific denominations here
+        }
+
+        // Show products by category
+        function showCategory(category) {
+            selectedCategory = category;
+            
+            // Update UI
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // In a real app, you would filter products by category here
+        }
+
+        // Format price with IDR currency
+        function formatPrice(price) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
+        }
+
+        // Increase quantity in product detail
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('product-quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        // Decrease quantity in product detail
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('product-quantity');
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+
+        // Add to cart from product detail modal
+        function addToCartFromModal() {
+            if (!currentProduct) return;
+            
+            const quantity = parseInt(document.getElementById('product-quantity').value);
+            addToCart(currentProduct.id, quantity);
+        }
+
+        // Add product to cart
+        function addToCart(productId, quantity) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            // Check if product already in cart
+            const existingItem = cartItems.find(item => item.productId === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cartItems.push({
+                    productId: productId,
+                    quantity: quantity
+                });
+            }
+            
+            // Update UI
+            updateCartCount();
+            
+            // Show success message
+            alert(`${product.name} telah ditambahkan ke keranjang!`);
+            
+            // Close modal if open
+            closeModal();
+        }
+
+        // Update cart count in header
+        function updateCartCount() {
+            const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+        }
+
+        // Buy now (direct checkout)
+        function buyNow() {
+            if (!currentProduct) return;
+            
+            const quantity = parseInt(document.getElementById('product-quantity').value);
+            addToCart(currentProduct.id, quantity);
+            showCartPage();
+        }
+
+        // Show cart page
+        function showCartPage() {
+            // Hide all pages
+            document.querySelector('.main-container').classList.add('hidden');
+            cartPage.classList.remove('hidden');
+            
+            // In a real app, you would update the cart page content here
+        }
+
+        // Login function
+        function login(email, password) {
+            // Simulate login (in a real app, this would call your backend)
+            currentUser = {
+                name: "John Doe",
+                email: email
+            };
+            
+            // Close modal
+            closeModal();
+            
+            // Show success message
+            alert(`Berhasil login sebagai ${email}`);
+            
+            // Update UI (in a real app, you would update the header to show user info)
+        }
+
+        // Register function
+        function register(name, email, password) {
+            // Simulate registration (in a real app, this would call your backend)
+            currentUser = {
+                name: name,
+                email: email
+            };
+            
+            // Close modal
+            closeModal();
+            
+            // Show success message
+            alert(`Akun ${email} berhasil didaftarkan!`);
+        }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
