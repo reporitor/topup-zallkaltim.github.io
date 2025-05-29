@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun Game Premium - ZallHosting.biz.id</title>
+    <link rel="stylesheet" href="css/akungame.css">
+    <link rel="stylesheet" href="css/respakungame.css">
+    <link rel="stylesheet" href="css/animatedakungame.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>ZallHosting<span>.biz.id</span></h1>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li class="dropdown">
+                        <a href="#">Kategori Game <span>▼</span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mobile Legends</a></li>
+                            <li><a href="#">Free Fire</a></li>
+                            <li><a href="#">PUBG Mobile</a></li>
+                            <li><a href="#">Valorant</a></li>
+                            <li><a href="#">Genshin Impact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Cara Order</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <main class="main-content">
+        <section class="promo-banner">
+            <div class="banner-slider">
+                <div class="banner active" style="background-image: url('https://via.placeholder.com/1200x300/222/FF0000?text=Promo+Akun+Baru+Diskon+30%25');">
+                    <div class="banner-content">
+                        <h2>Promo Spesial Akun Baru!</h2>
+                        <p>Diskon hingga 30% untuk pembelian pertama</p>
+                        <a href="#" class="btn">Lihat Promo</a>
+                    </div>
+                </div>
+                <div class="banner" style="background-image: url('https://via.placeholder.com/1200x300/222/FF0000?text=Akun+Pro+Rank+Mythic+Ready');">
+                    <div class="banner-content">
+                        <h2>Akun Pro Rank Mythic</h2>
+                        <p>Skin lengkap dengan harga terjangkau</p>
+                        <a href="#" class="btn">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-filter">
+            <div class="container">
+                <div class="search-box">
+                    <input type="text" placeholder="Cari akun game..." id="search-input">
+                    <button class="search-btn">Cari</button>
+                </div>
+                <div class="filter-options">
+                    <select id="game-filter">
+                        <option value="">Semua Game</option>
+                        <option value="mobile-legends">Mobile Legends</option>
+                        <option value="free-fire">Free Fire</option>
+                        <option value="pubg">PUBG Mobile</option>
+                        <option value="valorant">Valorant</option>
+                    </select>
+                    <select id="price-filter">
+                        <option value="">Semua Harga</option>
+                        <option value="0-100000">Rp 0 - 100.000</option>
+                        <option value="100000-500000">Rp 100.000 - 500.000</option>
+                        <option value="500000-1000000">Rp 500.000 - 1.000.000</option>
+                    </select>
+                    <select id="status-filter">
+                        <option value="">Semua Status</option>
+                        <option value="available">Belum Sold</option>
+                        <option value="sold">Sudah Sold</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="game-accounts">
+            <div class="container">
+                <h2 class="section-title">Koleksi Akun Game Premium</h2>
+                <div class="account-grid" id="account-grid">
+                    <!-- Akun game akan dimuat di sini melalui JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tentang Kami</h3>
+                    <p>ZallHosting menyediakan akun game premium berkualitas dengan harga terjangkau sejak 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>Email: support@zallhosting.biz.id</p>
+                    <p>WhatsApp: +62 812-3456-7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Metode Pembayaran</h3>
+                    <div class="payment-methods">
+                        <img src="https://via.placeholder.com/50x30/fff/000?text=BCA" alt="BCA">
+                        <img src="https://via.placeholder.com/50x30/fff/000?text=BRI" alt="BRI">
+                        <img src="https://via.placeholder.com/50x30/fff/000?text=MANDIRI" alt="Mandiri">
+                        <img src="https://via.placeholder.com/50x30/fff/000?text=DANA" alt="DANA">
+                        <img src="https://via.placeholder.com/50x30/fff/000?text=OVO" alt="OVO">
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ZallHosting.biz.id - All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/search-filter.js"></script>
+    <script src="js/banner-slider.js"></script>
+</body>
+</html>
