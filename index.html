@@ -1388,10 +1388,10 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+     <!-- Header -->
     <header>
         <div class="header-container">
-            <a href="3" class="logo" onclick="showPage('home')">
+            <a href="#" class="logo" onclick="showPage('home')">
                 <i class="fas fa-gamepad"></i>
                 <span>GameHub</span>
             </a>
@@ -1401,20 +1401,20 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </div>
             
-            <div class="index.html">
-                <a href="home.html" class="nav-icon" onclick="showPage('home')">
+            <div class="nav-icons">
+                <a href="#" class="nav-icon" onclick="showPage('home')">
                     <i class="fas fa-home"></i>
                     <span>Home</span>
                 </a>
-                <a href="login.html" class="nav-icon" onclick="showAuthModal('login')">
+                <a href="#" class="nav-icon" onclick="showAuthModal('login')">
                     <i class="fas fa-user"></i>
                     <span>Login</span>
                 </a>
-                <a href="wihlist.html" class="nav-icon" onclick="showPage('wishlist')">
+                <a href="#" class="nav-icon" onclick="showPage('wishlist')">
                     <i class="fas fa-heart"></i>
                     <span>Wishlist</span>
                 </a>
-                <a href="cart.html" class="nav-icon" onclick="showPage('cart')">
+                <a href="#" class="nav-icon" onclick="showPage('cart')">
                     <div style="position: relative;">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
@@ -1423,60 +1423,58 @@
                 </a>
             </div>
         </div>
-    </header>
+  <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-title">
+                    <i class="fas fa-bars"></i>
+                    <span>Kategori Produk</span>
+                </div>
+                <a href="#" class="menu-item active" onclick="showCategory('all')">
+                    <i class="fas fa-th-large"></i>
+                    <span>Semua Produk</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('accounts')">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Akun Game</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('topup')">
+                    <i class="fas fa-coins"></i>
+                    <span>Top Up Game</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('rental')">
+                    <i class="fas fa-clock"></i>
+                    <span>Sewa Akun</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('digital')">
+                    <i class="fas fa-wallet"></i>
+                    <span>Isi Ulang Digital</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('items')">
+                    <i class="fas fa-box-open"></i>
+                    <span>Item Game</span>
+                </a>
 
-   <!-- Main Content -->
-<div class="main-container">
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-menu">
-            <div class="menu-title">
-                <i class="fas fa-bars"></i>
-                <span>Kategori Produk</span>
+                <div class="menu-title mt-3">
+                    <i class="fas fa-tags"></i>
+                    <span>Promo & Voucher</span>
+                </div>
+                <a href="#" class="menu-item" onclick="showCategory('voucher')">
+                    <i class="fas fa-percentage"></i>
+                    <span>Voucher Diskon</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('giveaway')">
+                    <i class="fas fa-gift"></i>
+                    <span>Giveaway</span>
+                </a>
+                <a href="#" class="menu-item" onclick="showCategory('flashsale')">
+                    <i class="fas fa-fire"></i>
+                    <span>Flash Sale</span>
+                </a>
             </div>
-            <a href="produk.html" class="menu-item active" onclick="showCategory('all')">
-                <i class="fas fa-th-large"></i>
-                <span>Semua Produk</span>
-            </a>
-            <a href="akungame.html" class="menu-item" onclick="showCategory('accounts')">
-                <i class="fas fa-user-circle"></i>
-                <span>Akun Game</span>
-            </a>
-            <a href="topup.html" class="menu-item" onclick="showCategory('topup')">
-                <i class="fas fa-coins"></i>
-                <span>Top Up Game</span>
-            </a>
-            <a href="sewa.html" class="menu-item" onclick="showCategory('rental')">
-                <i class="fas fa-clock"></i>
-                <span>Sewa Akun</span>
-            </a>
-            <a href="isi-ulang.html" class="menu-item" onclick="showCategory('digital')">
-                <i class="fas fa-wallet"></i>
-                <span>Isi Ulang Digital</span>
-            </a>
-            <a href="item.html" class="menu-item" onclick="showCategory('items')">
-                <i class="fas fa-box-open"></i>
-                <span>Item Game</span>
-            </a>
-
-            <div class="menu-title mt-3">
-                <i class="fas fa-tags"></i>
-                <span>Promo & Voucher</span>
-            </div>
-            <a href="voucher.html" class="menu-item" onclick="showCategory('voucher')">
-                <i class="fas fa-percentage"></i>
-                <span>Voucher Diskon</span>
-            </a>
-            <a href="giveaway.html" class="menu-item" onclick="showCategory('giveaway')">
-                <i class="fas fa-gift"></i>
-                <span>Giveaway</span>
-            </a>
-            <a href="flashsale.html" class="menu-item" onclick="showCategory('flashsale')">
-                <i class="fas fa-fire"></i>
-                <span>Flash Sale</span>
-            </a>
         </div>
-    </div>
 
     <!-- Content Area -->
     <div class="content-area">
@@ -1493,49 +1491,20 @@
 </div>
 
         
-        <!-- Content -->
+      <!-- Content Area -->
         <div class="content">
-            <!-- Hero Banner with Close Button -->
-            <div class="hero-banner animate-slide-up" id="promo-banner">
-                <img src="https://via.placeholder.com/1200x300/FF6B00/FFFFFF?text=Special+Promo+70%25+Off+Game+Accounts" alt="Promo Banner">
-                <button class="banner-close" onclick="closeBanner()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <!-- Quick Categories -->
-            <div class="categories animate-fade">
-                <div class="category-card" onclick="showCategory('valorant')">
-                    <div class="category-icon">
-                        <i class="fas fa-crosshairs"></i>
-                    </div>
-                    <div class="category-name">Valorant</div>
+            <!-- Semua konten kategori akan ditampilkan di sini -->
+            <div id="category-all" class="category-content">
+                <!-- Konten default (home) -->
+                <!-- Hero Banner dengan Close Button -->
+                <div class="hero-banner animate-slide-up" id="promo-banner">
+                    <img src="https://via.placeholder.com/1200x300/FF6B00/FFFFFF?text=Special+Promo+70%25+Off+Game+Accounts" alt="Promo Banner">
+                    <button class="banner-close" onclick="closeBanner()">
+                        <i class="fas fa-times"></i>
+                    </button>
                 </div>
-                <div class="category-card" onclick="showCategory('genshin')">
-                    <div class="category-icon">
-                        <i class="fas fa-wind"></i>
-                    </div>
-                    <div class="category-name">Genshin Impact</div>
-                </div>
-                <div class="category-card" onclick="showCategory('mlbb')">
-                    <div class="category-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="category-name">Mobile Legends</div>
-                </div>
-                <div class="category-card" onclick="showCategory('pubg')">
-                    <div class="category-icon">
-                        <i class="fas fa-parachute-box"></i>
-                    </div>
-                    <div class="category-name">PUBG</div>
-                </div>
-                <div class="category-card" onclick="showCategory('lol')">
-                    <div class="category-icon">
-                        <i class="fas fa-chess-rook"></i>
-                    </div>
-                    <div class="category-name">Free fire</div>
-                </div>
-            </div>
+                
+           
             
             <!-- Flash Sale Section -->
             <div class="flash-sale animate-slide-up">
@@ -2547,15 +2516,78 @@ function showCategory(category) {
     }
 }
 </script>
+
+                
     <script>
-  fetch('http://localhost:5000/data')
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(err => console.error(err));
-</script>
-    
- <script src="script.js"></script>
+        // Fungsi untuk menampilkan halaman tertentu
+        function showPage(page) {
+            event.preventDefault();
+            
+            // Sembunyikan semua konten utama
+            document.querySelector('.main-container').classList.add('hidden');
+            
+            // Tampilkan halaman yang diminta
+            if (page === 'cart') {
+                document.getElementById('cart-page-content').classList.remove('hidden');
+                updateCartPage(); // Fungsi untuk memperbarui tampilan keranjang
+            } else if (page === 'home') {
+                document.querySelector('.main-container').classList.remove('hidden');
+                showCategory('all');
+            }
+            // Tambahkan kondisi untuk halaman lainnya (wishlist, dll)
+        }
+
+        // Fungsi untuk menampilkan kategori produk
+        function showCategory(category) {
+            event.preventDefault();
+            
+            // Sembunyikan semua konten kategori
+            const categoryContents = document.querySelectorAll('.category-content');
+            categoryContents.forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Tampilkan kategori yang dipilih
+            const selectedCategory = document.getElementById(`category-${category}`);
+            if (selectedCategory) {
+                selectedCategory.style.display = 'block';
+            }
+            
+            // Update menu aktif
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Tandai menu yang aktif
+            const activeMenuItem = document.querySelector(`.menu-item[onclick="showCategory('${category}')"`);
+            if (activeMenuItem) {
+                activeMenuItem.classList.add('active');
+            }
+            
+            // Jika kategori adalah 'all', tampilkan konten default
+            if (category === 'all') {
+                document.getElementById('category-all').style.display = 'block';
+            }
+            
+            // Scroll ke atas
+            window.scrollTo(0, 0);
+        }
+
+        // Fungsi lainnya tetap sama seperti sebelumnya
+        // ... (closeModal, showProductDetail, addToCart, dll)
+
+        // Inisialisasi aplikasi
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tampilkan halaman home secara default
+            showCategory('all');
+            
+            // Inisialisasi lainnya
+            if (localStorage.getItem('promoBannerClosed') {
+                document.getElementById('promo-banner').style.display = 'none';
+            }
+        });
+    </script>
+                
 </body>
 </html>
