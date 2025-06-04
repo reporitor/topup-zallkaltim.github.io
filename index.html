@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>zallshop - All-in-One Gaming Marketplace</title>
+    <title>GameHub - Marketplace Game Terlengkap</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
     <style>
-        /* Global Variables */
+        /* Variabel Global */
         :root {
             --primary: #FF6B00;
             --secondary: #00B0FF;
@@ -23,7 +23,7 @@
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Base Styles */
+        /* Reset dan Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -35,6 +35,7 @@
             background-color: #F5F5F5;
             color: #333;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         /* Scrollbar */
@@ -143,103 +144,8 @@
             transition: var(--transition);
         }
 
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.6rem 1.2rem;
-            border: none;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #E05D00;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: var(--secondary);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #0095E0;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 176, 255, 0.3);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-sm {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.85rem;
-        }
-
-        .btn-lg {
-            padding: 0.8rem 1.6rem;
-            font-size: 1.1rem;
-        }
-
-        .btn-icon {
-            width: 36px;
-            height: 36px;
-            padding: 0;
-            border-radius: 50%;
-        }
-
-        /* Badges */
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 4px;
-        }
-
-        .badge-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .badge-secondary {
-            background-color: var(--secondary);
-            color: white;
-        }
-
-        .badge-success {
-            background-color: var(--success);
-            color: white;
-        }
-
-        .badge-danger {
-            background-color: var(--danger);
-            color: white;
-        }
-
-        .badge-warning {
-            background-color: var(--warning);
-            color: white;
+        .mt-3 {
+            margin-top: 1.5rem;
         }
 
         /* Header */
@@ -258,6 +164,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -272,10 +179,12 @@
 
         .logo img {
             height: 40px;
+            object-fit: contain;
         }
 
         .search-bar {
             flex: 1;
+            min-width: 200px;
             max-width: 600px;
             margin: 0 1.5rem;
             position: relative;
@@ -354,19 +263,22 @@
             margin: 0 auto;
             padding: 1.5rem;
             display: flex;
+            flex-direction: column;
             gap: 1.5rem;
         }
 
-        .sidebar {
-            width: 250px;
-            flex-shrink: 0;
-        }
-
-        .content {
-            flex: 1;
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         /* Sidebar */
+        .sidebar {
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
         .sidebar-menu {
             background-color: white;
             border-radius: 8px;
@@ -413,7 +325,9 @@
         /* Hero Banner */
         .hero-banner {
             position: relative;
-            height: 300px;
+            width: 100%;
+            height: auto;
+            max-height: 300px;
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -449,7 +363,7 @@
         /* Categories */
         .categories {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
@@ -485,6 +399,9 @@
         .category-name {
             font-weight: 500;
             font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Flash Sale */
@@ -501,6 +418,8 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .section-title {
@@ -538,7 +457,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 1rem;
         }
 
@@ -565,10 +484,21 @@
             z-index: 1;
         }
 
-        .product-image {
+        .product-image-container {
             width: 100%;
             height: 160px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
         }
 
         .product-info {
@@ -614,11 +544,13 @@
         .product-rating i {
             color: #FFC107;
             margin-right: 0.3rem;
+            font-size: 0.9rem;
         }
 
         .product-sold {
             color: var(--gray);
             margin-left: 0.5rem;
+            font-size: 0.8rem;
         }
 
         .add-to-cart {
@@ -626,6 +558,16 @@
             margin-top: 0.8rem;
             padding: 0.5rem;
             font-size: 0.85rem;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--primary);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background-color: #E05D00;
         }
 
         /* Top Up Section */
@@ -643,6 +585,7 @@
             margin-bottom: 1.5rem;
             overflow-x: auto;
             padding-bottom: 0.5rem;
+            scrollbar-width: thin;
         }
 
         .game-item {
@@ -668,11 +611,12 @@
 
         .game-name {
             font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .denomination-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 1rem;
         }
 
@@ -724,7 +668,7 @@
 
         .bank-list {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 1rem;
         }
 
@@ -770,7 +714,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
@@ -902,127 +846,20 @@
             gap: 1rem;
         }
 
-        /* Login/Signup Form */
-        .auth-form .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .auth-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .auth-form .form-control {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .auth-form .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.2);
-        }
-
-        .forgot-password {
-            display: block;
-            text-align: right;
-            font-size: 0.85rem;
-            color: var(--gray);
-            margin-top: 0.5rem;
-            text-decoration: none;
-        }
-
-        .forgot-password:hover {
-            color: var(--primary);
-        }
-
-        .auth-divider {
-            display: flex;
-            align-items: center;
-            margin: 1.5rem 0;
-            color: var(--gray);
-        }
-
-        .auth-divider::before,
-        .auth-divider::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #eee;
-            margin: 0 1rem;
-        }
-
-        .social-login {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .btn-social {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .btn-google {
-            background-color: white;
-            border: 1px solid #ddd;
-            color: #333;
-        }
-
-        .btn-google:hover {
-            background-color: #f5f5f5;
-        }
-
-        .btn-facebook {
-            background-color: #3B5998;
-            color: white;
-        }
-
-        .btn-facebook:hover {
-            background-color: #344E86;
-        }
-
-        .auth-footer {
-            text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-        }
-
-        .auth-footer a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .auth-footer a:hover {
-            text-decoration: underline;
-        }
-
         /* Product Detail */
         .product-detail {
             display: flex;
+            flex-direction: column;
             gap: 2rem;
         }
 
         .product-gallery {
-            width: 400px;
-            flex-shrink: 0;
+            width: 100%;
         }
 
         .product-main-image {
             width: 100%;
-            height: 400px;
+            height: 300px;
             object-fit: contain;
             background-color: white;
             border-radius: 8px;
@@ -1034,6 +871,8 @@
         .product-thumbnails {
             display: flex;
             gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
         }
 
         .product-thumbnail {
@@ -1046,6 +885,7 @@
             cursor: pointer;
             border: 1px solid #ddd;
             transition: var(--transition);
+            flex-shrink: 0;
         }
 
         .product-thumbnail:hover {
@@ -1053,11 +893,11 @@
         }
 
         .product-info {
-            flex: 1;
+            width: 100%;
         }
 
         .product-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
@@ -1086,20 +926,20 @@
         }
 
         .product-price {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
 
         .product-original-price {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gray);
             text-decoration: line-through;
             margin-right: 0.5rem;
         }
 
         .product-discount {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--danger);
             font-weight: 600;
         }
@@ -1112,6 +952,7 @@
 
         .product-actions {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
             margin-top: 1.5rem;
         }
@@ -1122,6 +963,7 @@
             border: 1px solid #ddd;
             border-radius: 6px;
             overflow: hidden;
+            width: 100%;
         }
 
         .quantity-btn {
@@ -1137,7 +979,7 @@
         }
 
         .quantity-input {
-            width: 50px;
+            width: 100%;
             height: 40px;
             text-align: center;
             border: none;
@@ -1160,6 +1002,8 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .cart-title {
@@ -1175,6 +1019,8 @@
             display: flex;
             padding: 1rem 0;
             border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .cart-item-image {
@@ -1182,11 +1028,11 @@
             height: 80px;
             object-fit: contain;
             border-radius: 4px;
-            margin-right: 1rem;
         }
 
         .cart-item-details {
             flex: 1;
+            min-width: 200px;
         }
 
         .cart-item-title {
@@ -1236,118 +1082,83 @@
         .checkout-btn {
             width: 100%;
             margin-top: 1.5rem;
+            padding: 1rem;
+            font-size: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background-color: #E05D00;
         }
 
         /* Responsive Styles */
-        @media (max-width: 1200px) {
-            .products-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .denomination-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .bank-list {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .header-container {
-                padding: 0.75rem 1rem;
-            }
-            
-            .search-bar {
-                margin: 0 1rem;
-            }
-            
-            .main-container {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .categories {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
+        @media (min-width: 576px) {
             .product-detail {
-                flex-direction: column;
+                flex-direction: row;
             }
             
             .product-gallery {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-icons {
-                gap: 1rem;
+                width: 400px;
             }
             
-            .nav-icon span {
-                display: none;
-            }
-            
-            .categories {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .denomination-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .bank-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo span {
-                display: none;
-            }
-            
-            .search-bar {
-                margin: 0 0.5rem;
-            }
-            
-            .categories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .denomination-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .bank-list {
-                grid-template-columns: repeat(2, 1fr);
+            .product-info {
+                width: calc(100% - 400px);
             }
             
             .product-actions {
-                flex-direction: column;
+                flex-direction: row;
             }
             
             .quantity-selector {
-                width: 100%;
+                width: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .main-container {
+                flex-direction: row;
+            }
+            
+            .sidebar {
+                width: 250px;
+                margin-bottom: 0;
+            }
+            
+            .content-area {
+                flex: 1;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(5, 1fr);
             }
         }
 
@@ -1388,7 +1199,7 @@
     </style>
 </head>
 <body>
-     <!-- Header -->
+    <!-- Header -->
     <header>
         <div class="header-container">
             <a href="#" class="logo" onclick="showPage('home')">
@@ -1423,7 +1234,9 @@
                 </a>
             </div>
         </div>
-  <!-- Main Content -->
+    </header>
+
+    <!-- Main Content -->
     <div class="main-container">
         <!-- Sidebar -->
         <div class="sidebar">
@@ -1476,393 +1289,508 @@
             </div>
         </div>
 
-    <!-- Content Area -->
-    <div class="content-area">
-        <div id="category-all" class="category-content">Semua Produk akan tampil di sini.</div>
-        <div id="category-accounts" class="category-content" style="display:none;">Konten Akun Game</div>
-        <div id="category-topup" class="category-content" style="display:none;">Konten Top Up Game</div>
-        <div id="category-rental" class="category-content" style="display:none;">Konten Sewa Akun</div>
-        <div id="category-digital" class="category-content" style="display:none;">Konten Isi Ulang Digital</div>
-        <div id="category-items" class="category-content" style="display:none;">Konten Item Game</div>
-        <div id="category-voucher" class="category-content" style="display:none;">Konten Voucher Diskon</div>
-        <div id="category-giveaway" class="category-content" style="display:none;">Konten Giveaway</div>
-        <div id="category-flashsale" class="category-content" style="display:none;">Konten Flash Sale</div>
-    </div>
-</div>
-
-        
-      <!-- Content Area -->
-        <div class="content">
-            <!-- Semua konten kategori akan ditampilkan di sini -->
+        <!-- Content Area -->
+        <div class="content-area">
             <div id="category-all" class="category-content">
                 <!-- Konten default (home) -->
                 <!-- Hero Banner dengan Close Button -->
                 <div class="hero-banner animate-slide-up" id="promo-banner">
-                    <img src="https://via.placeholder.com/1200x300/FF6B00/FFFFFF?text=Special+Promo+70%25+Off+Game+Accounts" alt="Promo Banner">
+                    <img src="https://via.placeholder.com/1200x300/FF6B00/FFFFFF?text=Special+Promo+70%25+Off+Game+Accounts" 
+                         alt="Promo Spesial Diskon 70% untuk Akun Game" 
+                         class="hero-image">
                     <button class="banner-close" onclick="closeBanner()">
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
                 
-           
+                <!-- Categories -->
+                <div class="categories">
+                    <div class="category-card" onclick="showCategory('accounts')">
+                        <div class="category-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="category-name">Akun Game</div>
+                    </div>
+                    <div class="category-card" onclick="showCategory('topup')">
+                        <div class="category-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="category-name">Top Up</div>
+                    </div>
+                    <div class="category-card" onclick="showCategory('rental')">
+                        <div class="category-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="category-name">Sewa Akun</div>
+                    </div>
+                    <div class="category-card" onclick="showCategory('digital')">
+                        <div class="category-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="category-name">Isi Ulang</div>
+                    </div>
+                    <div class="category-card" onclick="showCategory('items')">
+                        <div class="category-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div class="category-name">Item Game</div>
+                    </div>
+                </div>
             
-            <!-- Flash Sale Section -->
-            <div class="flash-sale animate-slide-up">
-                <div class="section-header">
-                    <h2 class="section-title">Flash Sale <span class="text-danger">🔥</span></h2>
-                    <div class="countdown">
-                        <div class="countdown-item">
-                            <div class="countdown-value">12</div>
-                            <div class="countdown-label">Jam</div>
+                <!-- Flash Sale Section -->
+                <div class="flash-sale animate-slide-up">
+                    <div class="section-header">
+                        <h2 class="section-title">Flash Sale <span class="text-danger">🔥</span></h2>
+                        <div class="countdown">
+                            <div class="countdown-item">
+                                <div class="countdown-value">12</div>
+                                <div class="countdown-label">Jam</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value">45</div>
+                                <div class="countdown-label">Menit</div>
+                            </div>
+                            <div class="countdown-item">
+                                <div class="countdown-value">30</div>
+                                <div class="countdown-label">Detik</div>
+                            </div>
                         </div>
-                        <div class="countdown-item">
-                            <div class="countdown-value">45</div>
-                            <div class="countdown-label">Menit</div>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <div class="product-card" onclick="showProductDetail(1)">
+                            <div class="product-badge">
+                                <span class="badge badge-danger">70%</span>
+                            </div>
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Valorant+Radiant" 
+                                     class="product-image" 
+                                     alt="Akun Valorant Radiant">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akun Valorant Radiant (Top 500)</h3>
+                                <div>
+                                    <span class="product-price">Rp 2.500.000</span>
+                                    <span class="product-original-price">Rp 8.000.000</span>
+                                    <span class="product-discount">70%</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="product-rating-count">(128)</span>
+                                    <span class="product-sold">Terjual 45</span>
+                                </div>
+                                <button class="add-to-cart">+ Keranjang</button>
+                            </div>
                         </div>
-                        <div class="countdown-item">
-                            <div class="countdown-value">30</div>
-                            <div class="countdown-label">Detik</div>
+                        
+                        <div class="product-card" onclick="showProductDetail(2)">
+                            <div class="product-badge">
+                                <span class="badge badge-danger">50%</span>
+                            </div>
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Genshin+AR60" 
+                                     class="product-image" 
+                                     alt="Akun Genshin Impact AR60">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akun Genshin Impact AR 60</h3>
+                                <div>
+                                    <span class="product-price">Rp 3.500.000</span>
+                                    <span class="product-original-price">Rp 7.000.000</span>
+                                    <span class="product-discount">50%</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="product-rating-count">(95)</span>
+                                    <span class="product-sold">Terjual 32</span>
+                                </div>
+                                <button class="add-to-cart">+ Keranjang</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" onclick="showProductDetail(3)">
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=MLBB+100+Skin" 
+                                     class="product-image" 
+                                     alt="Akun Mobile Legends 100+ Skin">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akun Mobile Legends 100+ Skin</h3>
+                                <div>
+                                    <span class="product-price">Rp 1.200.000</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="product-rating-count">(210)</span>
+                                    <span class="product-sold">Terjual 78</span>
+                                </div>
+                                <button class="add-to-cart">+ Keranjang</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" onclick="showProductDetail(4)">
+                            <div class="product-badge">
+                                <span class="badge badge-danger">30%</span>
+                            </div>
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=LoL+Challenger" 
+                                     class="product-image" 
+                                     alt="Akun LoL Challenger">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akun LoL Challenger 800LP</h3>
+                                <div>
+                                    <span class="product-price">Rp 5.000.000</span>
+                                    <span class="product-original-price">Rp 7.150.000</span>
+                                    <span class="product-discount">30%</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="product-rating-count">(64)</span>
+                                    <span class="product-sold">Terjual 18</span>
+                                </div>
+                                <button class="add-to-cart">+ Keranjang</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" onclick="showProductDetail(5)">
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Fortnite+OG" 
+                                     class="product-image" 
+                                     alt="Akun Fortnite OG">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akun Fortnite OG Skins</h3>
+                                <div>
+                                    <span class="product-price">Rp 3.200.000</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="product-rating-count">(42)</span>
+                                    <span class="product-sold">Terjual 15</span>
+                                </div>
+                                <button class="add-to-cart">+ Keranjang</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="products-grid">
-                    <div class="product-card" onclick="showProductDetail(1)">
-                        <div class="product-badge">
-                            <span class="badge-danger">70%</span>
+                <!-- Top Up Section -->
+                <div class="topup-section animate-fade">
+                    <div class="section-header">
+                        <h2 class="section-title">Top Up Game <span class="text-primary"><i class="fas fa-bolt"></i></span></h2>
+                        <a href="#" class="text-primary">Lihat Semua</a>
+                    </div>
+                    
+                    <div class="game-list">
+                        <div class="game-item active" onclick="selectGame('valorant')">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=V" 
+                                 class="game-icon" 
+                                 alt="Valorant">
+                            <div class="game-name">Valorant</div>
                         </div>
-                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Valorant+Radiant" class="product-image" alt="Valorant Radiant Account">
-                        <div class="product-info">
-                            <h3 class="product-name">Akun Valorant Radiant (Top 500)</h3>
-                            <div>
-                                <span class="product-price">Rp 2.500.000</span>
-                                <span class="product-original-price">Rp 8.000.000</span>
-                                <span class="product-discount">70%</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="product-rating-count">(128)</span>
-                                <span class="product-sold">Terjual 45</span>
-                            </div>
-                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        <div class="game-item" onclick="selectGame('genshin')">
+                            <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=G" 
+                                 class="game-icon" 
+                                 alt="Genshin Impact">
+                            <div class="game-name">Genshin</div>
+                        </div>
+                        <div class="game-item" onclick="selectGame('mlbb')">
+                            <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=ML" 
+                                 class="game-icon" 
+                                 alt="Mobile Legends">
+                            <div class="game-name">MLBB</div>
+                        </div>
+                        <div class="game-item" onclick="selectGame('pubg')">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=BG" 
+                                 class="game-icon" 
+                                 alt="PUBG">
+                            <div class="game-name">PUBG</div>
+                        </div>
+                        <div class="game-item" onclick="selectGame('lol')">
+                            <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=LoL" 
+                                 class="game-icon" 
+                                 alt="League of Legends">
+                            <div class="game-name">LoL</div>
+                        </div>
+                        <div class="game-item" onclick="selectGame('cod')">
+                            <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=COD" 
+                                 class="game-icon" 
+                                 alt="Call of Duty">
+                            <div class="game-name">COD</div>
+                        </div>
+                        <div class="game-item" onclick="selectGame('ff')">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=FF" 
+                                 class="game-icon" 
+                                 alt="Free Fire">
+                            <div class="game-name">Free Fire</div>
                         </div>
                     </div>
                     
-                    <div class="product-card" onclick="showProductDetail(2)">
-                        <div class="product-badge">
-                            <span class="badge-danger">50%</span>
+                    <div class="denomination-grid">
+                        <div class="denomination-card active">
+                            <div class="denomination-amount">1000 VP</div>
+                            <div class="denomination-price">Rp 120.000</div>
+                            <div class="denomination-bonus">+ Bonus 50 VP</div>
                         </div>
-                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Genshin+AR60" class="product-image" alt="Genshin Impact AR60">
-                        <div class="product-info">
-                            <h3 class="product-name">Akun Genshin Impact AR 60</h3>
-                            <div>
-                                <span class="product-price">Rp 3.500.000</span>
-                                <span class="product-original-price">Rp 7.000.000</span>
-                                <span class="product-discount">50%</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <span class="product-rating-count">(95)</span>
-                                <span class="product-sold">Terjual 32</span>
-                            </div>
-                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">2050 VP</div>
+                            <div class="denomination-price">Rp 240.000</div>
+                            <div class="denomination-bonus">+ Bonus 150 VP</div>
+                        </div>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">3400 VP</div>
+                            <div class="denomination-price">Rp 360.000</div>
+                            <div class="denomination-bonus">+ Bonus 300 VP</div>
+                        </div>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">5500 VP</div>
+                            <div class="denomination-price">Rp 600.000</div>
+                            <div class="denomination-bonus">+ Bonus 600 VP</div>
                         </div>
                     </div>
                     
-                    <div class="product-card" onclick="showProductDetail(3)">
-                        <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=MLBB+100+Skin" class="product-image" alt="Mobile Legends 100 Skin">
-                        <div class="product-info">
-                            <h3 class="product-name">Akun Mobile Legends 100+ Skin</h3>
-                            <div>
-                                <span class="product-price">Rp 1.200.000</span>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary">Beli Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Account Rental Section -->
+                <div class="flash-sale animate-fade">
+                    <div class="section-header">
+                        <h2 class="section-title">Sewa Akun Game <span class="text-secondary"><i class="fas fa-clock"></i></span></h2>
+                        <a href="#" class="text-primary">Lihat Semua</a>
+                    </div>
+                    
+                    <div class="products-grid">
+                        <div class="product-card" onclick="showProductDetail(6)">
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=Valo+Radiant" 
+                                     class="product-image" 
+                                     alt="Sewa Akun Valorant Radiant">
                             </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                            <div class="product-info">
+                                <h3 class="product-name">Sewa Akun Valorant Radiant</h3>
+                                <div>
+                                    <span class="product-price">Rp 50.000/jam</span>
                                 </div>
-                                <span class="product-rating-count">(210)</span>
-                                <span class="product-sold">Terjual 78</span>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="product-rating-count">(87)</span>
+                                    <span class="product-sold">Disewa 120x</span>
+                                </div>
+                                <button class="add-to-cart btn-secondary">Sewa Sekarang</button>
                             </div>
-                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        </div>
+                        
+                        <div class="product-card" onclick="showProductDetail(7)">
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Genshin+C6" 
+                                     class="product-image" 
+                                     alt="Sewa Akun Genshin Impact">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sewa Akun Genshin C6 5*</h3>
+                                <div>
+                                    <span class="product-price">Rp 75.000/jam</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                    <span class="product-rating-count">(45)</span>
+                                    <span class="product-sold">Disewa 65x</span>
+                                </div>
+                                <button class="add-to-cart btn-secondary">Sewa Sekarang</button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card" onclick="showProductDetail(8)">
+                            <div class="product-badge">
+                                <span class="badge badge-primary">Promo</span>
+                            </div>
+                            <div class="product-image-container">
+                                <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=LoL+Chall" 
+                                     class="product-image" 
+                                     alt="Sewa Akun LoL Challenger">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sewa Akun LoL Challenger</h3>
+                                <div>
+                                    <span class="product-price">Rp 100.000/jam</span>
+                                </div>
+                                <div class="product-rating">
+                                    <div class="product-rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="product-rating-count">(32)</span>
+                                    <span class="product-sold">Disewa 48x</span>
+                                </div>
+                                <button class="add-to-cart btn-secondary">Sewa Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Digital Services Section -->
+                <div class="digital-services animate-fade">
+                    <div class="section-header">
+                        <h2 class="section-title">Isi Ulang Digital <span class="text-success"><i class="fas fa-wallet"></i></span></h2>
+                        <a href="#" class="text-primary">Lihat Semua</a>
+                    </div>
+                    
+                    <div class="bank-list">
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=DANA" 
+                                 class="bank-logo" 
+                                 alt="DANA">
+                            <div class="bank-name">DANA</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=OVO" 
+                                 class="bank-logo" 
+                                 alt="OVO">
+                            <div class="bank-name">OVO</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Gopay" 
+                                 class="bank-logo" 
+                                 alt="Gopay">
+                            <div class="bank-name">Gopay</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=LinkAja" 
+                                 class="bank-logo" 
+                                 alt="LinkAja">
+                            <div class="bank-name">LinkAja</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BCA" 
+                                 class="bank-logo" 
+                                 alt="BCA">
+                            <div class="bank-name">BCA</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Mandiri" 
+                                 class="bank-logo" 
+                                 alt="Mandiri">
+                            <div class="bank-name">Mandiri</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=BNI" 
+                                 class="bank-logo" 
+                                 alt="BNI">
+                            <div class="bank-name">BNI</div>
+                        </div>
+                        <div class="bank-item">
+                            <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BRI" 
+                                 class="bank-logo" 
+                                 alt="BRI">
+                            <div class="bank-name">BRI</div>
                         </div>
                     </div>
                     
-                    <div class="product-card" onclick="showProductDetail(4)">
-                        <div class="product-badge">
-                            <span class="badge-danger">30%</span>
+                    <div class="denomination-grid mt-3">
+                        <div class="denomination-card">
+                            <div class="denomination-amount">50.000</div>
+                            <div class="denomination-price">Rp 50.000</div>
                         </div>
-                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=LoL+Challenger" class="product-image" alt="LoL Challenger">
-                        <div class="product-info">
-                            <h3 class="product-name">Akun LoL Challenger 800LP</h3>
-                            <div>
-                                <span class="product-price">Rp 5.000.000</span>
-                                <span class="product-original-price">Rp 7.150.000</span>
-                                <span class="product-discount">30%</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="product-rating-count">(64)</span>
-                                <span class="product-sold">Terjual 18</span>
-                            </div>
-                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">100.000</div>
+                            <div class="denomination-price">Rp 100.000</div>
+                        </div>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">150.000</div>
+                            <div class="denomination-price">Rp 150.000</div>
+                        </div>
+                        <div class="denomination-card">
+                            <div class="denomination-amount">200.000</div>
+                            <div class="denomination-price">Rp 200.000</div>
                         </div>
                     </div>
                     
-                    <div class="product-card" onclick="showProductDetail(5)">
-                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Fortnite+OG" class="product-image" alt="Fortnite OG">
-                        <div class="product-info">
-                            <h3 class="product-name">Akun Fortnite OG Skins</h3>
-                            <div>
-                                <span class="product-price">Rp 3.200.000</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <span class="product-rating-count">(42)</span>
-                                <span class="product-sold">Terjual 15</span>
-                            </div>
-                            <button class="add-to-cart btn-primary btn-sm">+ Keranjang</button>
-                        </div>
+                    <div class="text-center mt-3">
+                        <button class="btn btn-primary">Isi Sekarang</button>
                     </div>
                 </div>
             </div>
             
-            <!-- Top Up Section -->
-            <div class="topup-section animate-fade">
-                <div class="section-header">
-                    <h2 class="section-title">Top Up Game <span class="text-primary"><i class="fas fa-bolt"></i></span></h2>
-                    <a href="#" class="text-primary">Lihat Semua</a>
-                </div>
-                
-                <div class="game-list">
-                    <div class="game-item active" onclick="selectGame('valorant')">
-                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=V" class="game-icon" alt="Valorant">
-                        <div class="game-name">Valorant</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('genshin')">
-                        <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=G" class="game-icon" alt="Genshin">
-                        <div class="game-name">Genshin</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('mlbb')">
-                        <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=ML" class="game-icon" alt="MLBB">
-                        <div class="game-name">MLBB</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('pubg')">
-                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=BG" class="game-icon" alt="PUBG">
-                        <div class="game-name">PUBG</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('lol')">
-                        <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=LoL" class="game-icon" alt="LoL">
-                        <div class="game-name">LoL</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('cod')">
-                        <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=COD" class="game-icon" alt="COD">
-                        <div class="game-name">COD</div>
-                    </div>
-                    <div class="game-item" onclick="selectGame('ff')">
-                        <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=FF" class="game-icon" alt="FF">
-                        <div class="game-name">Free Fire</div>
-                    </div>
-                </div>
-                
-                <div class="denomination-grid">
-                    <div class="denomination-card active">
-                        <div class="denomination-amount">1000 VP</div>
-                        <div class="denomination-price">Rp 120.000</div>
-                        <div class="denomination-bonus">+ Bonus 50 VP</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">2050 VP</div>
-                        <div class="denomination-price">Rp 240.000</div>
-                        <div class="denomination-bonus">+ Bonus 150 VP</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">3400 VP</div>
-                        <div class="denomination-price">Rp 360.000</div>
-                        <div class="denomination-bonus">+ Bonus 300 VP</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">5500 VP</div>
-                        <div class="denomination-price">Rp 600.000</div>
-                        <div class="denomination-bonus">+ Bonus 600 VP</div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-3">
-                    <button class="btn-primary">Beli Sekarang</button>
-                </div>
+            <!-- Other Category Contents (hidden by default) -->
+            <div id="category-accounts" class="category-content" style="display:none;">
+                <h2>Akun Game</h2>
+                <p>Daftar akun game premium akan ditampilkan di sini.</p>
             </div>
-            
-            <!-- Account Rental Section -->
-            <div class="flash-sale animate-fade">
-                <div class="section-header">
-                    <h2 class="section-title">Sewa Akun Game <span class="text-secondary"><i class="fas fa-clock"></i></span></h2>
-                    <a href="#" class="text-primary">Lihat Semua</a>
-                </div>
-                
-                <div class="products-grid">
-                    <div class="product-card" onclick="showProductDetail(6)">
-                        <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=Valo+Radiant" class="product-image" alt="Valorant Radiant">
-                        <div class="product-info">
-                            <h3 class="product-name">Sewa Akun Valorant Radiant</h3>
-                            <div>
-                                <span class="product-price">Rp 50.000/jam</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <span class="product-rating-count">(87)</span>
-                                <span class="product-sold">Disewa 120x</span>
-                            </div>
-                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card" onclick="showProductDetail(7)">
-                        <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Genshin+C6" class="product-image" alt="Genshin C6">
-                        <div class="product-info">
-                            <h3 class="product-name">Sewa Akun Genshin C6 5*</h3>
-                            <div>
-                                <span class="product-price">Rp 75.000/jam</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                                <span class="product-rating-count">(45)</span>
-                                <span class="product-sold">Disewa 65x</span>
-                            </div>
-                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card" onclick="showProductDetail(8)">
-                        <div class="product-badge">
-                            <span class="badge-primary">Promo</span>
-                        </div>
-                        <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=LoL+Chall" class="product-image" alt="LoL Challenger">
-                        <div class="product-info">
-                            <h3 class="product-name">Sewa Akun LoL Challenger</h3>
-                            <div>
-                                <span class="product-price">Rp 100.000/jam</span>
-                            </div>
-                            <div class="product-rating">
-                                <div class="product-rating-stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                </div>
-                                <span class="product-rating-count">(32)</span>
-                                <span class="product-sold">Disewa 48x</span>
-                            </div>
-                            <button class="add-to-cart btn-secondary btn-sm">Sewa Sekarang</button>
-                        </div>
-                    </div>
-                </div>
+            <div id="category-topup" class="category-content" style="display:none;">
+                <h2>Top Up Game</h2>
+                <p>Daftar top up game akan ditampilkan di sini.</p>
             </div>
-            
-            <!-- Digital Services Section -->
-            <div class="digital-services animate-fade">
-                <div class="section-header">
-                    <h2 class="section-title">Isi Ulang Digital <span class="text-success"><i class="fas fa-wallet"></i></span></h2>
-                    <a href="#" class="text-primary">Lihat Semua</a>
-                </div>
-                
-                <div class="bank-list">
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=DANA" class="bank-logo" alt="DANA">
-                        <div class="bank-name">DANA</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=OVO" class="bank-logo" alt="OVO">
-                        <div class="bank-name">OVO</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Gopay" class="bank-logo" alt="Gopay">
-                        <div class="bank-name">Gopay</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=LinkAja" class="bank-logo" alt="LinkAja">
-                        <div class="bank-name">LinkAja</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BCA" class="bank-logo" alt="BCA">
-                        <div class="bank-name">BCA</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/0F3460?text=Mandiri" class="bank-logo" alt="Mandiri">
-                        <div class="bank-name">Mandiri</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/1A1A2E?text=BNI" class="bank-logo" alt="BNI">
-                        <div class="bank-name">BNI</div>
-                    </div>
-                    <div class="bank-item">
-                        <img src="https://via.placeholder.com/60x30/FFFFFF/16213E?text=BRI" class="bank-logo" alt="BRI">
-                        <div class="bank-name">BRI</div>
-                    </div>
-                </div>
-                
-                <div class="denomination-grid mt-3">
-                    <div class="denomination-card">
-                        <div class="denomination-amount">50.000</div>
-                        <div class="denomination-price">Rp 50.000</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">100.000</div>
-                        <div class="denomination-price">Rp 100.000</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">150.000</div>
-                        <div class="denomination-price">Rp 150.000</div>
-                    </div>
-                    <div class="denomination-card">
-                        <div class="denomination-amount">200.000</div>
-                        <div class="denomination-price">Rp 200.000</div>
-                    </div>
-                </div>
-                
-                <div class="text-center mt-3">
-                    <button class="btn-primary">Isi Sekarang</button>
-                </div>
+            <div id="category-rental" class="category-content" style="display:none;">
+                <h2>Sewa Akun</h2>
+                <p>Daftar sewa akun game akan ditampilkan di sini.</p>
+            </div>
+            <div id="category-digital" class="category-content" style="display:none;">
+                <h2>Isi Ulang Digital</h2>
+                <p>Daftar isi ulang digital akan ditampilkan di sini.</p>
+            </div>
+            <div id="category-items" class="category-content" style="display:none;">
+                <h2>Item Game</h2>
+                <p>Daftar item game akan ditampilkan di sini.</p>
+            </div>
+            <div id="category-voucher" class="category-content" style="display:none;">
+                <h2>Voucher Diskon</h2>
+                <p>Daftar voucher diskon akan ditampilkan di sini.</p>
+            </div>
+            <div id="category-giveaway" class="category-content" style="display:none;">
+                <h2>Giveaway</h2>
+                <p>Daftar giveaway akan ditampilkan di sini.</p>
+            </div>
+            <div id="category-flashsale" class="category-content" style="display:none;">
+                <h2>Flash Sale</h2>
+                <p>Daftar flash sale akan ditampilkan di sini.</p>
             </div>
         </div>
     </div>
@@ -1937,12 +1865,27 @@
             <div class="modal-body">
                 <div class="product-detail">
                     <div class="product-gallery">
-                        <img src="https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Product+Image" class="product-main-image" alt="Product Image" id="product-main-image">
+                        <img src="https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=Product+Image" 
+                             class="product-main-image" 
+                             alt="Product Image" 
+                             id="product-main-image">
                         <div class="product-thumbnails">
-                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=1" class="product-thumbnail" onclick="changeProductImage(this)">
-                            <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=2" class="product-thumbnail" onclick="changeProductImage(this)">
-                            <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=3" class="product-thumbnail" onclick="changeProductImage(this)">
-                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=4" class="product-thumbnail" onclick="changeProductImage(this)">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=1" 
+                                 class="product-thumbnail" 
+                                 onclick="changeProductImage(this)"
+                                 alt="Thumbnail 1">
+                            <img src="https://via.placeholder.com/60x60/16213E/FFFFFF?text=2" 
+                                 class="product-thumbnail" 
+                                 onclick="changeProductImage(this)"
+                                 alt="Thumbnail 2">
+                            <img src="https://via.placeholder.com/60x60/0F3460/FFFFFF?text=3" 
+                                 class="product-thumbnail" 
+                                 onclick="changeProductImage(this)"
+                                 alt="Thumbnail 3">
+                            <img src="https://via.placeholder.com/60x60/1A1A2E/FFFFFF?text=4" 
+                                 class="product-thumbnail" 
+                                 onclick="changeProductImage(this)"
+                                 alt="Thumbnail 4">
                         </div>
                     </div>
                     <div class="product-info">
@@ -1994,10 +1937,10 @@
                                 <input type="number" class="quantity-input" value="1" min="1" id="product-quantity">
                                 <button class="quantity-btn" onclick="increaseQuantity()">+</button>
                             </div>
-                            <button class="btn-primary btn-lg" onclick="addToCartFromModal()">
+                            <button class="btn btn-primary" onclick="addToCartFromModal()">
                                 <i class="fas fa-shopping-cart"></i> Tambahkan ke Keranjang
                             </button>
-                            <button class="btn-outline btn-lg" onclick="buyNow()">
+                            <button class="btn btn-outline" onclick="buyNow()">
                                 Beli Sekarang
                             </button>
                         </div>
@@ -2018,7 +1961,9 @@
                 
                 <div class="cart-items">
                     <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/1A1A2E/FFFFFF?text=V" class="cart-item-image" alt="Valorant Account">
+                        <img src="https://via.placeholder.com/80x80/1A1A2E/FFFFFF?text=V" 
+                             class="cart-item-image" 
+                             alt="Valorant Account">
                         <div class="cart-item-details">
                             <h3 class="cart-item-title">Akun Valorant Radiant (Top 500)</h3>
                             <div class="cart-item-price">Rp 2.500.000</div>
@@ -2032,7 +1977,9 @@
                     </div>
                     
                     <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/16213E/FFFFFF?text=G" class="cart-item-image" alt="Genshin Account">
+                        <img src="https://via.placeholder.com/80x80/16213E/FFFFFF?text=G" 
+                             class="cart-item-image" 
+                             alt="Genshin Account">
                         <div class="cart-item-details">
                             <h3 class="cart-item-title">Akun Genshin Impact AR 60</h3>
                             <div class="cart-item-price">Rp 3.500.000</div>
@@ -2046,7 +1993,9 @@
                     </div>
                     
                     <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/0F3460/FFFFFF?text=VP" class="cart-item-image" alt="Valorant Points">
+                        <img src="https://via.placeholder.com/80x80/0F3460/FFFFFF?text=VP" 
+                             class="cart-item-image" 
+                             alt="Valorant Points">
                         <div class="cart-item-details">
                             <h3 class="cart-item-title">Top Up Valorant 3400 VP</h3>
                             <div class="cart-item-price">Rp 360.000</div>
@@ -2078,7 +2027,7 @@
                         <span class="text-primary">Rp 5.865.000</span>
                     </div>
                     
-                    <button class="checkout-btn btn-primary btn-lg">
+                    <button class="checkout-btn">
                         <i class="fas fa-credit-card"></i> Proses Checkout
                     </button>
                 </div>
@@ -2238,8 +2187,6 @@
         let promoBannerClosed = localStorage.getItem('promoBannerClosed') === 'true';
 
         // DOM Elements
-        const loginModal = document.getElementById('login-modal');
-        const registerModal = document.getElementById('register-modal');
         const productModal = document.getElementById('product-modal');
         const cartPage = document.getElementById('cart-page-content');
         const promoBanner = document.getElementById('promo-banner');
@@ -2257,58 +2204,27 @@
             
             // Update cart count
             updateCartCount();
+            
+            // Show home page by default
+            showPage('home');
         }
 
         // Set up all event listeners
         function setupEventListeners() {
-            // Login form
-            document.getElementById('modal-login-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const email = document.getElementById('modal-email').value;
-                const password = document.getElementById('modal-password').value;
-                login(email, password);
-            });
-            
-            // Register form
-            document.getElementById('modal-register-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const name = document.getElementById('modal-name').value;
-                const email = document.getElementById('modal-register-email').value;
-                const password = document.getElementById('modal-register-password').value;
-                const confirmPassword = document.getElementById('modal-confirm-password').value;
-                
-                if (password !== confirmPassword) {
-                    alert('Password dan konfirmasi password tidak sama!');
-                    return;
-                }
-                
-                register(name, email, password);
-            });
-            
             // Add to cart buttons
             document.querySelectorAll('.add-to-cart').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = parseInt(this.closest('.product-card').getAttribute('data-id'));
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productCard = this.closest('.product-card');
+                    const productId = parseInt(productCard.getAttribute('data-id') || 
+                                     Array.from(productCard.parentNode.children).indexOf(productCard) + 1;
                     addToCart(productId, 1);
                 });
             });
         }
 
-        // Show auth modal (login or register)
-        function showAuthModal(type) {
-            closeModal(); // Close any open modal first
-            
-            if (type === 'login') {
-                loginModal.classList.add('active');
-            } else if (type === 'register') {
-                registerModal.classList.add('active');
-            }
-        }
-
         // Close modal
         function closeModal() {
-            loginModal.classList.remove('active');
-            registerModal.classList.remove('active');
             productModal.classList.remove('active');
         }
 
@@ -2335,7 +2251,22 @@
             const mainImage = document.getElementById('product-main-image');
             if (currentProduct.images.length > 0) {
                 mainImage.src = currentProduct.images[0];
+                mainImage.alt = currentProduct.name;
             }
+            
+            // Update thumbnails
+            const thumbnailsContainer = document.querySelector('.product-thumbnails');
+            thumbnailsContainer.innerHTML = '';
+            currentProduct.images.forEach((img, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = img.replace('400x400', '60x60');
+                thumbnail.alt = `Thumbnail ${index + 1}`;
+                thumbnail.className = 'product-thumbnail';
+                thumbnail.onclick = function() {
+                    changeProductImage(this);
+                };
+                thumbnailsContainer.appendChild(thumbnail);
+            });
             
             // Show modal
             productModal.classList.add('active');
@@ -2363,26 +2294,45 @@
                 item.classList.remove('active');
             });
             event.currentTarget.classList.add('active');
-            
-            // In a real app, you would load game-specific denominations here
         }
 
         // Show products by category
         function showCategory(category) {
             selectedCategory = category;
             
-            // Update UI
+            // Hide all category contents
+            document.querySelectorAll('.category-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Show selected category
+            const selectedContent = document.getElementById(`category-${category}`);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+            
+            // Update menu active state
             document.querySelectorAll('.menu-item').forEach(item => {
                 item.classList.remove('active');
             });
-            event.currentTarget.classList.add('active');
             
-            // In a real app, you would filter products by category here
+            // Mark current menu as active
+            const activeMenu = document.querySelector(`.menu-item[onclick*="${category}"]`);
+            if (activeMenu) {
+                activeMenu.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
 
         // Format price with IDR currency
         function formatPrice(price) {
-            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(price);
+            return new Intl.NumberFormat('id-ID', { 
+                style: 'currency', 
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(price);
         }
 
         // Increase quantity in product detail
@@ -2420,12 +2370,14 @@
             } else {
                 cartItems.push({
                     productId: productId,
-                    quantity: quantity
+                    quantity: quantity,
+                    product: product
                 });
             }
             
             // Update UI
             updateCartCount();
+            updateCartPage();
             
             // Show success message
             alert(`${product.name} telah ditambahkan ke keranjang!`);
@@ -2440,154 +2392,95 @@
             cartCountElement.textContent = totalItems;
         }
 
+        // Update cart page
+        function updateCartPage() {
+            const cartItemsContainer = document.querySelector('.cart-items');
+            if (!cartItemsContainer) return;
+            
+            cartItemsContainer.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            cartItems.forEach(item => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                
+                cartItemElement.innerHTML = `
+                    <img src="${item.product.images[0].replace('400x400', '80x80')}" 
+                         class="cart-item-image" 
+                         alt="${item.product.name}">
+                    <div class="cart-item-details">
+                        <h3 class="cart-item-title">${item.product.name}</h3>
+                        <div class="cart-item-price">${formatPrice(item.product.price)}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-btn btn-sm" onclick="updateCartItemQuantity(${item.productId}, -1)">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                            <button class="quantity-btn btn-sm" onclick="updateCartItemQuantity(${item.productId}, 1)">+</button>
+                        </div>
+                        <span class="cart-item-remove" onclick="removeFromCart(${item.productId})">Hapus</span>
+                    </div>
+                `;
+                
+                cartItemsContainer.appendChild(cartItemElement);
+                subtotal += item.product.price * item.quantity;
+            });
+            
+            // Update summary
+            document.querySelector('.summary-row:nth-child(1) span:last-child').textContent = formatPrice(subtotal);
+            document.querySelector('.summary-total span:last-child').textContent = formatPrice(subtotal - 500000 + 5000);
+        }
+
+        // Update cart item quantity
+        function updateCartItemQuantity(productId, change) {
+            const item = cartItems.find(item => item.productId === productId);
+            if (!item) return;
+            
+            const newQuantity = item.quantity + change;
+            if (newQuantity < 1) {
+                removeFromCart(productId);
+                return;
+            }
+            
+            item.quantity = newQuantity;
+            updateCartCount();
+            updateCartPage();
+        }
+
+        // Remove item from cart
+        function removeFromCart(productId) {
+            cartItems = cartItems.filter(item => item.productId !== productId);
+            updateCartCount();
+            updateCartPage();
+        }
+
         // Buy now (direct checkout)
         function buyNow() {
             if (!currentProduct) return;
             
             const quantity = parseInt(document.getElementById('product-quantity').value);
             addToCart(currentProduct.id, quantity);
-            showCartPage();
+            showPage('cart');
         }
 
-        // Show cart page
-        function showCartPage() {
+        // Show page (home, cart, etc)
+        function showPage(page) {
             // Hide all pages
-            document.querySelector('.main-container').classList.add('hidden');
-            cartPage.classList.remove('hidden');
+            document.querySelectorAll('.main-container').forEach(container => {
+                container.classList.add('hidden');
+            });
             
-            // In a real app, you would update the cart page content here
-        }
-
-        // Login function
-        function login(email, password) {
-            // Simulate login (in a real app, this would call your backend)
-            currentUser = {
-                name: "John Doe",
-                email: email
-            };
-            
-            // Close modal
-            closeModal();
-            
-            // Show success message
-            alert(`Berhasil login sebagai ${email}`);
-            
-            // Update UI (in a real app, you would update the header to show user info)
-        }
-
-        // Register function
-        function register(name, email, password) {
-            // Simulate registration (in a real app, this would call your backend)
-            currentUser = {
-                name: name,
-                email: email
-            };
-            
-            // Close modal
-            closeModal();
-            
-            // Show success message
-            alert(`Akun ${email} berhasil didaftarkan!`);
+            // Show requested page
+            if (page === 'cart') {
+                cartPage.classList.remove('hidden');
+                updateCartPage();
+            } else if (page === 'home') {
+                document.querySelector('.main-container').classList.remove('hidden');
+                showCategory('all');
+            }
         }
 
         // Initialize the app when DOM is loaded
         document.addEventListener('DOMContentLoaded', init);
     </script>
-      <script>
-function showCategory(category) {
-    // Sembunyikan semua kategori
-    const contents = document.querySelectorAll('.category-content');
-    contents.forEach(content => content.style.display = 'none');
-
-    // Hapus status 'active' dari semua menu
-    const menus = document.querySelectorAll('.menu-item');
-    menus.forEach(menu => menu.classList.remove('active'));
-
-    // Tampilkan kategori yang dipilih
-    const selected = document.getElementById(`category-${category}`);
-    if (selected) {
-        selected.style.display = 'block';
-    }
-
-    // Tambahkan class active ke menu yang dipilih
-    const activeMenu = Array.from(menus).find(menu => menu.getAttribute('onclick')?.includes(category));
-    if (activeMenu) {
-        activeMenu.classList.add('active');
-    }
-}
-</script>
-
-                
-    <script>
-        // Fungsi untuk menampilkan halaman tertentu
-        function showPage(page) {
-            event.preventDefault();
-            
-            // Sembunyikan semua konten utama
-            document.querySelector('.main-container').classList.add('hidden');
-            
-            // Tampilkan halaman yang diminta
-            if (page === 'cart') {
-                document.getElementById('cart-page-content').classList.remove('hidden');
-                updateCartPage(); // Fungsi untuk memperbarui tampilan keranjang
-            } else if (page === 'home') {
-                document.querySelector('.main-container').classList.remove('hidden');
-                showCategory('all');
-            }
-            // Tambahkan kondisi untuk halaman lainnya (wishlist, dll)
-        }
-
-        // Fungsi untuk menampilkan kategori produk
-        function showCategory(category) {
-            event.preventDefault();
-            
-            // Sembunyikan semua konten kategori
-            const categoryContents = document.querySelectorAll('.category-content');
-            categoryContents.forEach(content => {
-                content.style.display = 'none';
-            });
-            
-            // Tampilkan kategori yang dipilih
-            const selectedCategory = document.getElementById(`category-${category}`);
-            if (selectedCategory) {
-                selectedCategory.style.display = 'block';
-            }
-            
-            // Update menu aktif
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Tandai menu yang aktif
-            const activeMenuItem = document.querySelector(`.menu-item[onclick="showCategory('${category}')"`);
-            if (activeMenuItem) {
-                activeMenuItem.classList.add('active');
-            }
-            
-            // Jika kategori adalah 'all', tampilkan konten default
-            if (category === 'all') {
-                document.getElementById('category-all').style.display = 'block';
-            }
-            
-            // Scroll ke atas
-            window.scrollTo(0, 0);
-        }
-
-        // Fungsi lainnya tetap sama seperti sebelumnya
-        // ... (closeModal, showProductDetail, addToCart, dll)
-
-        // Inisialisasi aplikasi
-        document.addEventListener('DOMContentLoaded', function() {
-            // Tampilkan halaman home secara default
-            showCategory('all');
-            
-            // Inisialisasi lainnya
-            if (localStorage.getItem('promoBannerClosed') {
-                document.getElementById('promo-banner').style.display = 'none';
-            }
-        });
-    </script>
-                
 </body>
 </html>
