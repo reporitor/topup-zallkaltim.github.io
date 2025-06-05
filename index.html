@@ -149,6 +149,65 @@
             margin-top: 1.5rem;
         }
 
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #E05D00;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0095E0;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 107, 0, 0.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .badge-danger {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .badge-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
         /* Header */
         header {
             background-color: white;
@@ -166,6 +225,7 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .logo {
@@ -176,6 +236,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            flex-shrink: 0;
         }
 
         .logo img {
@@ -185,9 +246,9 @@
 
         .search-bar {
             flex: 1;
-            min-width: 200px;
+            min-width: 150px;
             max-width: 600px;
-            margin: 0 1.5rem;
+            margin: 0 1rem;
             position: relative;
         }
 
@@ -220,7 +281,9 @@
 
         .nav-icons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-icon {
@@ -231,6 +294,7 @@
             text-decoration: none;
             font-size: 0.85rem;
             transition: var(--transition);
+            min-width: 50px;
         }
 
         .nav-icon:hover {
@@ -272,6 +336,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            flex: 1;
         }
 
         /* Sidebar */
@@ -587,6 +652,15 @@
             overflow-x: auto;
             padding-bottom: 0.5rem;
             scrollbar-width: thin;
+        }
+
+        .game-list::-webkit-scrollbar {
+            height: 5px;
+        }
+
+        .game-list::-webkit-scrollbar-thumb {
+            background-color: var(--primary);
+            border-radius: 10px;
         }
 
         .game-item {
@@ -1097,7 +1171,257 @@
             background-color: #E05D00;
         }
 
+        /* Help Center Floating Button */
+        .floating-buttons {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .floating-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .floating-button:hover {
+            transform: translateY(-5px);
+            background-color: #E05D00;
+        }
+
+        .floating-button.secondary {
+            background-color: var(--secondary);
+        }
+
+        .floating-button.secondary:hover {
+            background-color: #0095E0;
+        }
+
+        /* Help Center Modal */
+        .help-center-modal {
+            max-width: 400px;
+        }
+
+        .chat-container {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .chat-message.user {
+            background-color: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+
+        .chat-message.bot {
+            background-color: #e9ecef;
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+
+        .chat-input {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        /* Feedback Modal */
+        .feedback-modal {
+            max-width: 500px;
+        }
+
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .rating-star {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .rating-star.active {
+            color: #FFC107;
+        }
+
+        /* Customer Reviews Section */
+        .reviews-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .reviews-slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviews-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .review-card {
+            min-width: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        .review-content {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .review-content:before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            line-height: 1;
+        }
+
+        .review-text {
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 600;
+        }
+
+        .review-rating {
+            color: #FFC107;
+            margin-bottom: 0.5rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary);
+        }
+
         /* Responsive Styles */
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 0.75rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .nav-icon span {
+                display: none;
+            }
+            
+            .nav-icon i {
+                margin-bottom: 0;
+                font-size: 1.2rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .denomination-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .product-detail {
+                flex-direction: column;
+            }
+            
+            .product-gallery {
+                width: 100%;
+            }
+            
+            .product-info {
+                width: 100%;
+            }
+            
+            .floating-buttons {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .floating-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
         @media (min-width: 576px) {
             .product-detail {
                 flex-direction: row;
@@ -1141,6 +1465,10 @@
             .denomination-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .review-card {
+                min-width: 50%;
+            }
         }
 
         @media (min-width: 992px) {
@@ -1155,11 +1483,19 @@
             .footer-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+            
+            .review-card {
+                min-width: 33.33%;
+            }
         }
 
         @media (min-width: 1200px) {
             .products-grid {
                 grid-template-columns: repeat(5, 1fr);
+            }
+            
+            .review-card {
+                min-width: 25%;
             }
         }
 
@@ -1209,8 +1545,8 @@
             </a>
             
             <div class="search-bar">
-                <input type="text" placeholder="Cari akun game, top up, atau produk...">
-                <button type="submit"><i class="fas fa-search"></i></button>
+                <input type="text" id="search-input" placeholder="Cari akun game, top up, atau produk...">
+                <button type="button" onclick="handleSearch()"><i class="fas fa-search"></i></button>
             </div>
             
             <div class="nav-icons">
@@ -1364,7 +1700,7 @@
                                 <span class="badge badge-danger">70%</span>
                             </div>
                             <div class="product-image-container">
-                                <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-caec-622f-b480-1c7b4c2faf35/raw?se=2025-06-04T14%3A52%3A01Z&sp=r&sv=2024-08-04&sr=b&scid=1f6d3166-4557-5986-a639-2e5f9e63de94&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-03T18%3A08%3A51Z&ske=2025-06-04T18%3A08%3A51Z&sks=b&skv=2024-08-04&sig=veWTBL3A%2BxZi94ZuLWGqN9gB27N0VdWvFoFXdTqrswM%3D" 
+                                <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=Valo+Radiant" 
                                      class="product-image" 
                                      alt="Akun Valorant Radiant">
                             </div>
@@ -1395,7 +1731,7 @@
                                 <span class="badge badge-danger">50%</span>
                             </div>
                             <div class="product-image-container">
-                                <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-caec-622f-b480-1c7b4c2faf35/raw?se=2025-06-04T14%3A52%3A01Z&sp=r&sv=2024-08-04&sr=b&scid=1f6d3166-4557-5986-a639-2e5f9e63de94&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-03T18%3A08%3A51Z&ske=2025-06-04T18%3A08%3A51Z&sks=b&skv=2024-08-04&sig=veWTBL3A%2BxZi94ZuLWGqN9gB27N0VdWvFoFXdTqrswM%3D" 
+                                <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Genshin+AR60" 
                                      class="product-image" 
                                      alt="Akun Genshin Impact AR60">
                             </div>
@@ -1423,7 +1759,7 @@
                         
                         <div class="product-card" onclick="showProductDetail(3)">
                             <div class="product-image-container">
-                                <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-caec-622f-b480-1c7b4c2faf35/raw?se=2025-06-04T14%3A52%3A01Z&sp=r&sv=2024-08-04&sr=b&scid=1f6d3166-4557-5986-a639-2e5f9e63de94&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-03T18%3A08%3A51Z&ske=2025-06-04T18%3A08%3A51Z&sks=b&skv=2024-08-04&sig=veWTBL3A%2BxZi94ZuLWGqN9gB27N0VdWvFoFXdTqrswM%3D" 
+                                <img src="https://via.placeholder.com/300x200/0F3460/FFFFFF?text=ML+100+Skin" 
                                      class="product-image" 
                                      alt="Akun Mobile Legends 100+ Skin">
                             </div>
@@ -1452,7 +1788,7 @@
                                 <span class="badge badge-danger">30%</span>
                             </div>
                             <div class="product-image-container">
-                                <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-caec-622f-b480-1c7b4c2faf35/raw?se=2025-06-04T14%3A52%3A01Z&sp=r&sv=2024-08-04&sr=b&scid=1f6d3166-4557-5986-a639-2e5f9e63de94&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-03T18%3A08%3A51Z&ske=2025-06-04T18%3A08%3A51Z&sks=b&skv=2024-08-04&sig=veWTBL3A%2BxZi94ZuLWGqN9gB27N0VdWvFoFXdTqrswM%3D" 
+                                <img src="https://via.placeholder.com/300x200/1A1A2E/FFFFFF?text=LoL+Chall" 
                                      class="product-image" 
                                      alt="Akun LoL Challenger">
                             </div>
@@ -1480,7 +1816,7 @@
                         
                         <div class="product-card" onclick="showProductDetail(5)">
                             <div class="product-image-container">
-                                <img src="https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-caec-622f-b480-1c7b4c2faf35/raw?se=2025-06-04T14%3A52%3A01Z&sp=r&sv=2024-08-04&sr=b&scid=1f6d3166-4557-5986-a639-2e5f9e63de94&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-03T18%3A08%3A51Z&ske=2025-06-04T18%3A08%3A51Z&sks=b&skv=2024-08-04&sig=veWTBL3A%2BxZi94ZuLWGqN9gB27N0VdWvFoFXdTqrswM%3D" 
+                                <img src="https://via.placeholder.com/300x200/16213E/FFFFFF?text=Fortnite+OG" 
                                      class="product-image" 
                                      alt="Akun Fortnite OG">
                             </div>
@@ -1510,11 +1846,12 @@
                 <div class="topup-section animate-fade">
                     <div class="section-header">
                         <h2 class="section-title">Top Up Game <span class="text-primary"><i class="fas fa-bolt"></i></span></h2>
-                        <a href="#" class="text-primary">Lihat Semua</a>
+                        <a href="#" class="text-primary" onclick="showCategory('topup')">Lihat Semua</a>
                     </div>
                     
                     <div class="game-list">
-                        <div class="https://tse4.mm.bing.net/th?id=OIP.oIhWtnQd4tartG_g-gNPPwHaHa&pid=Api&P=0&h=180" 
+                        <div class="game-item active" onclick="selectGame('valorant')">
+                            <img src="https://tse4.mm.bing.net/th?id=OIP.oIhWtnQd4tartG_g-gNPPwHaHa&pid=Api&P=0&h=180" 
                                  class="game-icon" 
                                  alt="Valorant">
                             <div class="game-name">Valorant</div>
@@ -1585,11 +1922,31 @@
                     </div>
                 </div>
                 
+                <!-- Customer Reviews Section -->
+                <div class="reviews-section animate-fade">
+                    <div class="section-header">
+                        <h2 class="section-title">Ulasan Pelanggan <span class="text-primary"><i class="fas fa-star"></i></span></h2>
+                        <button class="btn btn-outline" onclick="showFeedbackModal()">Beri Ulasan</button>
+                    </div>
+                    
+                    <div class="reviews-slider">
+                        <div class="reviews-container" id="reviews-container">
+                            <!-- Reviews will be added dynamically -->
+                        </div>
+                        <div class="slider-controls">
+                            <div class="slider-dot active" onclick="goToReview(0)"></div>
+                            <div class="slider-dot" onclick="goToReview(1)"></div>
+                            <div class="slider-dot" onclick="goToReview(2)"></div>
+                            <div class="slider-dot" onclick="goToReview(3)"></div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Account Rental Section -->
                 <div class="flash-sale animate-fade">
                     <div class="section-header">
                         <h2 class="section-title">Sewa Akun Game <span class="text-secondary"><i class="fas fa-clock"></i></span></h2>
-                        <a href="#" class="text-primary">Lihat Semua</a>
+                        <a href="#" class="text-primary" onclick="showCategory('rental')">Lihat Semua</a>
                     </div>
                     
                     <div class="products-grid">
@@ -1680,7 +2037,7 @@
                 <div class="digital-services animate-fade">
                     <div class="section-header">
                         <h2 class="section-title">Isi Ulang Digital <span class="text-success"><i class="fas fa-wallet"></i></span></h2>
-                        <a href="#" class="text-primary">Lihat Semua</a>
+                        <a href="#" class="text-primary" onclick="showCategory('digital')">Lihat Semua</a>
                     </div>
                     
                     <div class="bank-list">
@@ -1813,21 +2170,21 @@
                 <div>
                     <h3 class="footer-title">Beli</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Akun Game</a></li>
-                        <li class="footer-link"><a href="#">Top Up Game</a></li>
-                        <li class="footer-link"><a href="#">Sewa Akun</a></li>
-                        <li class="footer-link"><a href="#">Item Game</a></li>
-                        <li class="footer-link"><a href="#">Voucher Game</a></li>
+                        <li class="footer-link"><a href="#" onclick="showCategory('accounts')">Akun Game</a></li>
+                        <li class="footer-link"><a href="#" onclick="showCategory('topup')">Top Up Game</a></li>
+                        <li class="footer-link"><a href="#" onclick="showCategory('rental')">Sewa Akun</a></li>
+                        <li class="footer-link"><a href="#" onclick="showCategory('items')">Item Game</a></li>
+                        <li class="footer-link"><a href="#" onclick="showCategory('voucher')">Voucher Game</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="footer-title">Bantuan</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="#">Pusat Bantuan</a></li>
+                        <li class="footer-link"><a href="#" onclick="showHelpCenter()">Pusat Bantuan</a></li>
                         <li class="footer-link"><a href="#">Cara Pembelian</a></li>
                         <li class="footer-link"><a href="#">Pengembalian</a></li>
-                        <li class="footer-link"><a href="#">Hubungi Kami</a></li>
+                        <li class="footer-link"><a href="#" onclick="showHelpCenter()">Hubungi Kami</a></li>
                         <li class="footer-link"><a href="#">FAQ</a></li>
                     </ul>
                 </div>
@@ -1835,8 +2192,8 @@
                 <div>
                     <h3 class="footer-title">Hubungi Kami</h3>
                     <ul class="footer-links">
-                        <li class="footer-link"><a href="#"><i class="fas fa-envelope"></i> support@gamehub.id</a></li>
-                        <li class="footer-link"><a href="#"><i class="fas fa-phone"></i> +62 812-3456-7890</a></li>
+                        <li class="footer-link"><a href="mailto:support@gamehub.id"><i class="fas fa-envelope"></i> support@gamehub.id</a></li>
+                        <li class="footer-link"><a href="tel:+6281234567890"><i class="fas fa-phone"></i> +62 812-3456-7890</a></li>
                         <li class="footer-link"><a href="#"><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</a></li>
                     </ul>
                     
@@ -1854,6 +2211,16 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="floating-button secondary" onclick="showHelpCenter()">
+            <i class="fas fa-question"></i>
+        </button>
+        <button class="floating-button" onclick="showPage('cart')">
+            <i class="fas fa-shopping-cart"></i>
+        </button>
+    </div>
 
     <!-- Product Detail Modal -->
     <div class="modal" id="product-modal">
@@ -1950,81 +2317,80 @@
         </div>
     </div>
 
+    <!-- Help Center Modal -->
+    <div class="modal" id="help-center-modal">
+        <div class="modal-content help-center-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Pusat Bantuan</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chat-container" id="chat-container">
+                    <div class="chat-message bot">
+                        Hai! Saya AI Assistant GameHub. Ada yang bisa saya bantu?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input" placeholder="Ketik pertanyaan Anda...">
+                    <button class="btn btn-primary" onclick="sendMessage()">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Modal -->
+    <div class="modal" id="feedback-modal">
+        <div class="modal-content feedback-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Beri Ulasan</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="feedback-form" onsubmit="submitFeedback(event)">
+                    <div class="rating-stars">
+                        <i class="fas fa-star rating-star" onclick="setRating(1)"></i>
+                        <i class="fas fa-star rating-star" onclick="setRating(2)"></i>
+                        <i class="fas fa-star rating-star" onclick="setRating(3)"></i>
+                        <i class="fas fa-star rating-star" onclick="setRating(4)"></i>
+                        <i class="fas fa-star rating-star" onclick="setRating(5)"></i>
+                    </div>
+                    <textarea id="feedback-text" placeholder="Bagaimana pengalaman Anda berbelanja di GameHub?"></textarea>
+                    <input type="email" id="feedback-email" placeholder="Email Anda (opsional)">
+                    <button type="submit" class="btn btn-primary">Kirim Ulasan</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Cart Page (hidden by default) -->
     <div class="main-container hidden" id="cart-page-content">
         <div class="content">
             <div class="cart-container">
                 <div class="cart-header">
                     <h1 class="cart-title">Keranjang Belanja</h1>
-                    <span>3 item</span>
+                    <span id="cart-item-count">0 item</span>
                 </div>
                 
-                <div class="cart-items">
-                    <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/1A1A2E/FFFFFF?text=V" 
-                             class="cart-item-image" 
-                             alt="Valorant Account">
-                        <div class="cart-item-details">
-                            <h3 class="cart-item-title">Akun Valorant Radiant (Top 500)</h3>
-                            <div class="cart-item-price">Rp 2.500.000</div>
-                            <div class="cart-item-quantity">
-                                <button class="quantity-btn btn-sm">-</button>
-                                <input type="number" class="quantity-input" value="1" min="1">
-                                <button class="quantity-btn btn-sm">+</button>
-                            </div>
-                            <span class="cart-item-remove">Hapus</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/16213E/FFFFFF?text=G" 
-                             class="cart-item-image" 
-                             alt="Genshin Account">
-                        <div class="cart-item-details">
-                            <h3 class="cart-item-title">Akun Genshin Impact AR 60</h3>
-                            <div class="cart-item-price">Rp 3.500.000</div>
-                            <div class="cart-item-quantity">
-                                <button class="quantity-btn btn-sm">-</button>
-                                <input type="number" class="quantity-input" value="1" min="1">
-                                <button class="quantity-btn btn-sm">+</button>
-                            </div>
-                            <span class="cart-item-remove">Hapus</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cart-item">
-                        <img src="https://via.placeholder.com/80x80/0F3460/FFFFFF?text=VP" 
-                             class="cart-item-image" 
-                             alt="Valorant Points">
-                        <div class="cart-item-details">
-                            <h3 class="cart-item-title">Top Up Valorant 3400 VP</h3>
-                            <div class="cart-item-price">Rp 360.000</div>
-                            <div class="cart-item-quantity">
-                                <button class="quantity-btn btn-sm">-</button>
-                                <input type="number" class="quantity-input" value="1" min="1">
-                                <button class="quantity-btn btn-sm">+</button>
-                            </div>
-                            <span class="cart-item-remove">Hapus</span>
-                        </div>
-                    </div>
+                <div class="cart-items" id="cart-items-container">
+                    <!-- Cart items will be added dynamically -->
                 </div>
                 
                 <div class="cart-summary">
                     <div class="summary-row">
                         <span>Subtotal</span>
-                        <span>Rp 6.360.000</span>
+                        <span id="cart-subtotal">Rp 0</span>
                     </div>
                     <div class="summary-row">
                         <span>Diskon</span>
-                        <span class="text-success">-Rp 500.000</span>
+                        <span class="text-success" id="cart-discount">-Rp 0</span>
                     </div>
                     <div class="summary-row">
                         <span>Biaya Admin</span>
-                        <span>Rp 5.000</span>
+                        <span id="cart-fee">Rp 0</span>
                     </div>
                     <div class="summary-row summary-total">
                         <span>Total</span>
-                        <span class="text-primary">Rp 5.865.000</span>
+                        <span class="text-primary" id="cart-total">Rp 0</span>
                     </div>
                     
                     <button class="checkout-btn">
@@ -2175,8 +2541,120 @@
                     "Support 24/7"
                 ],
                 stock: 2
+            },
+            {
+                id: 6,
+                name: "Akun Free Fire Max Legendary",
+                category: "accounts",
+                game: "Free Fire",
+                price: 1800000,
+                originalPrice: 2500000,
+                discount: 28,
+                rating: 4.8,
+                reviewCount: 156,
+                sold: 62,
+                images: [
+                    "https://via.placeholder.com/400x400/1A1A2E/FFFFFF?text=FF+Legendary",
+                    "https://via.placeholder.com/400x400/16213E/FFFFFF?text=FF+2"
+                ],
+                description: "Akun Free Fire Max dengan banyak skin legendary dan karakter langka. Termasuk bundle-bundle eksklusif dan diamond sisa. Akun aman dan original.",
+                features: [
+                    "Level 70",
+                    "20+ skin legendary",
+                    "5 karakter langka",
+                    "Diamond 2000+",
+                    "Bundle eksklusif",
+                    "Email bisa diganti",
+                    "Garansi aman"
+                ],
+                stock: 4
             }
         ];
+
+        // Customer Reviews Data
+        const customerReviews = [
+            {
+                id: 1,
+                name: "Budi Santoso",
+                rating: 5,
+                text: "Pengalaman belanja sangat memuaskan! Akun Valorant yang saya beli sesuai deskripsi dan prosesnya cepat. Seller juga ramah dan membantu.",
+                date: "2 hari yang lalu"
+            },
+            {
+                id: 2,
+                name: "Ani Wijaya",
+                rating: 4,
+                text: "Top up Genshin Impact berhasil dalam 5 menit seperti yang dijanjikan. Harga lebih murah dibanding tempat lain. Akan belanja lagi di sini.",
+                date: "1 minggu yang lalu"
+            },
+            {
+                id: 3,
+                name: "Rudi Hartono",
+                rating: 5,
+                text: "Sewa akun LoL Challenger sangat worth it! Ping rendah dan semua champion unlocked. Sangat membantu untuk latihan rank.",
+                date: "3 hari yang lalu"
+            },
+            {
+                id: 4,
+                name: "Dewi Lestari",
+                rating: 5,
+                text: "Pertama kali beli akun game online dan tidak mengecewakan. Seller memberikan garansi dan panduan lengkap untuk mengganti email.",
+                date: "5 hari yang lalu"
+            },
+            {
+                id: 5,
+                name: "Eko Prasetyo",
+                rating: 4,
+                text: "Proses pengiriman cepat, akun MLBB yang saya beli memiliki lebih banyak skin dari yang diharapkan. Hanya saja butuh waktu agak lama untuk verifikasi pembayaran.",
+                date: "1 minggu yang lalu"
+            },
+            {
+                id: 6,
+                name: "Siti Rahayu",
+                rating: 5,
+                text: "Customer service sangat responsif! Saya mengalami kendala saat login dan mereka membantu menyelesaikan masalah dalam 10 menit. Sangat profesional!",
+                date: "4 hari yang lalu"
+            },
+            {
+                id: 7,
+                name: "Agus Setiawan",
+                rating: 5,
+                text: "Harga akun Fortnite OG sangat reasonable untuk koleksi skin yang dimiliki. Proses transfer akun lancar dan aman. Recommended!",
+                date: "2 minggu yang lalu"
+            },
+            {
+                id: 8,
+                name: "Linda Permata",
+                rating: 4,
+                text: "Pengalaman pertama belanja di GameHub cukup baik. Akun yang saya beli sesuai deskripsi, hanya saja beberapa skin tidak seperti yang diharapkan.",
+                date: "1 minggu yang lalu"
+            },
+            {
+                id: 9,
+                name: "Hendra Kurniawan",
+                rating: 5,
+                text: "Top up Valorant VP sangat cepat, bonusnya juga diberikan sesuai janji. Sudah beberapa kali belanja di sini dan selalu puas.",
+                date: "3 hari yang lalu"
+            },
+            {
+                id: 10,
+                name: "Rina Anggraeni",
+                rating: 5,
+                text: "Saya awalnya ragu beli akun game online, tapi setelah mencoba di GameHub semua keraguan hilang. Akun aman, proses mudah, dan harga terjangkau.",
+                date: "1 minggu yang lalu"
+            }
+        ];
+
+        // Help Center Responses
+        const helpResponses = {
+            "pembayaran": "Untuk metode pembayaran, kami menerima transfer bank (BCA, Mandiri, BNI, BRI), e-wallet (DANA, OVO, Gopay, LinkAja), dan minimarket (Alfamart, Indomaret).",
+            "pengiriman": "Setelah pembayaran dikonfirmasi, produk digital akan dikirim dalam waktu 5-30 menit melalui email atau WhatsApp. Untuk akun game, kami akan mengirimkan detail login beserta panduan penggunaannya.",
+            "garansi": "Kami memberikan garansi 7 hari untuk semua produk akun game. Jika ada masalah dengan akun yang Anda beli, kami akan menggantinya dengan akun yang setara atau mengembalikan uang Anda.",
+            "refund": "Kebijakan refund berlaku jika produk tidak sesuai deskripsi atau tidak dikirim dalam waktu 24 jam. Silakan hubungi customer service kami untuk proses refund.",
+            "topup": "Untuk masalah top up yang belum masuk, pastikan ID game yang Anda masukkan sudah benar. Jika dalam 1 jam belum masuk, silakan hubungi kami dengan menyertakan bukti pembayaran.",
+            "akun": "Jika Anda mengalami masalah login ke akun yang dibeli, pastikan Anda sudah mengikuti panduan yang kami kirimkan. Jangan lupa untuk segera mengganti email dan password akun tersebut.",
+            "default": "Maaf, saya tidak mengerti pertanyaan Anda. Berikut beberapa topik yang mungkin bisa membantu: pembayaran, pengiriman, garansi, refund, topup, akun. Atau Anda bisa menghubungi customer service kami di support@gamehub.id"
+        };
 
         // App State
         let currentUser = null;
@@ -2185,12 +2663,19 @@
         let selectedGame = 'valorant';
         let selectedCategory = 'all';
         let promoBannerClosed = localStorage.getItem('promoBannerClosed') === 'true';
+        let currentRating = 0;
+        let currentReview = 0;
+        let chatHistory = [];
 
         // DOM Elements
         const productModal = document.getElementById('product-modal');
         const cartPage = document.getElementById('cart-page-content');
         const promoBanner = document.getElementById('promo-banner');
         const cartCountElement = document.querySelector('.cart-count');
+        const helpCenterModal = document.getElementById('help-center-modal');
+        const feedbackModal = document.getElementById('feedback-modal');
+        const chatContainer = document.getElementById('chat-container');
+        const reviewsContainer = document.getElementById('reviews-container');
 
         // Initialize the app
         function init() {
@@ -2207,6 +2692,15 @@
             
             // Show home page by default
             showPage('home');
+            
+            // Initialize reviews slider
+            initReviewsSlider();
+            
+            // Start countdown timer
+            startCountdown();
+            
+            // Load cart from localStorage
+            loadCart();
         }
 
         // Set up all event listeners
@@ -2221,11 +2715,115 @@
                     addToCart(productId, 1);
                 });
             });
+            
+            // Search input enter key
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+            
+            // Chat input enter key
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        sendMessage();
+                    }
+                });
+            }
+        }
+
+        // Initialize reviews slider
+        function initReviewsSlider() {
+            if (!reviewsContainer) return;
+            
+            // Clear existing reviews
+            reviewsContainer.innerHTML = '';
+            
+            // Add reviews to slider
+            customerReviews.slice(0, 8).forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                
+                let stars = '';
+                for (let i = 1; i <= 5; i++) {
+                    stars += `<i class="fas fa-star${i > review.rating ? '-half-alt' : ''}"></i>`;
+                }
+                
+                reviewCard.innerHTML = `
+                    <div class="review-content">
+                        <div class="review-rating">${stars}</div>
+                        <p class="review-text">${review.text}</p>
+                        <div class="review-author">${review.name}</div>
+                        <div class="text-muted">${review.date}</div>
+                    </div>
+                `;
+                
+                reviewsContainer.appendChild(reviewCard);
+            });
+            
+            // Start auto slide
+            setInterval(() => {
+                currentReview = (currentReview + 1) % 4;
+                goToReview(currentReview);
+            }, 5000);
+        }
+
+        // Go to specific review
+        function goToReview(index) {
+            if (!reviewsContainer) return;
+            
+            currentReview = index;
+            const offset = -index * 100;
+            reviewsContainer.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots
+            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Start countdown timer
+        function startCountdown() {
+            setInterval(() => {
+                const hoursElement = document.querySelector('.countdown-item:nth-child(1) .countdown-value');
+                const minutesElement = document.querySelector('.countdown-item:nth-child(2) .countdown-value');
+                const secondsElement = document.querySelector('.countdown-item:nth-child(3) .countdown-value');
+                
+                let hours = parseInt(hoursElement.textContent);
+                let minutes = parseInt(minutesElement.textContent);
+                let seconds = parseInt(secondsElement.textContent);
+                
+                seconds--;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        
+                        if (hours < 0) {
+                            hours = 23;
+                            minutes = 59;
+                            seconds = 59;
+                        }
+                    }
+                }
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
         }
 
         // Close modal
         function closeModal() {
-            productModal.classList.remove('active');
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.classList.remove('active');
+            });
         }
 
         // Show product detail modal
@@ -2326,6 +2924,44 @@
             window.scrollTo(0, 0);
         }
 
+        // Handle search functionality
+        function handleSearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            if (!searchTerm.trim()) return;
+            
+            // Check if search term contains game names or categories
+            if (searchTerm.includes('top up') || searchTerm.includes('topup')) {
+                showCategory('topup');
+            } else if (searchTerm.includes('free fire') || searchTerm.includes('ff')) {
+                // For Free Fire search, we'll show top up with FF selected
+                showCategory('topup');
+                // Simulate selecting FF game
+                setTimeout(() => {
+                    const ffGame = document.querySelector('.game-item:nth-child(7)');
+                    if (ffGame) {
+                        ffGame.click();
+                    }
+                }, 100);
+            } else if (searchTerm.includes('akun') || searchTerm.includes('account')) {
+                showCategory('accounts');
+            } else if (searchTerm.includes('sewa') || searchTerm.includes('rental')) {
+                showCategory('rental');
+            } else if (searchTerm.includes('isi ulang') || searchTerm.includes('digital')) {
+                showCategory('digital');
+            } else if (searchTerm.includes('item') || searchTerm.includes('skin')) {
+                showCategory('items');
+            } else if (searchTerm.includes('voucher') || searchTerm.includes('diskon')) {
+                showCategory('voucher');
+            } else if (searchTerm.includes('giveaway') || searchTerm.includes('hadiah')) {
+                showCategory('giveaway');
+            } else if (searchTerm.includes('flash sale') || searchTerm.includes('flashsale')) {
+                showCategory('flashsale');
+            } else {
+                // Default search behavior
+                alert(`Hasil pencarian untuk: ${searchTerm}\n\nFitur pencarian lengkap akan diimplementasikan kemudian.`);
+            }
+        }
+
         // Format price with IDR currency
         function formatPrice(price) {
             return new Intl.NumberFormat('id-ID', { 
@@ -2384,6 +3020,9 @@
             
             // Close modal if open
             closeModal();
+            
+            // Save cart to localStorage
+            saveCart();
         }
 
         // Update cart count in header
@@ -2394,7 +3033,13 @@
 
         // Update cart page
         function updateCartPage() {
-            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartItemsContainer = document.getElementById('cart-items-container');
+            const cartItemCount = document.getElementById('cart-item-count');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartDiscount = document.getElementById('cart-discount');
+            const cartFee = document.getElementById('cart-fee');
+            const cartTotal = document.getElementById('cart-total');
+            
             if (!cartItemsContainer) return;
             
             cartItemsContainer.innerHTML = '';
@@ -2414,7 +3059,7 @@
                         <div class="cart-item-price">${formatPrice(item.product.price)}</div>
                         <div class="cart-item-quantity">
                             <button class="quantity-btn btn-sm" onclick="updateCartItemQuantity(${item.productId}, -1)">-</button>
-                            <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateCartItemQuantity(${item.productId}, 0, this.value)">
                             <button class="quantity-btn btn-sm" onclick="updateCartItemQuantity(${item.productId}, 1)">+</button>
                         </div>
                         <span class="cart-item-remove" onclick="removeFromCart(${item.productId})">Hapus</span>
@@ -2426,16 +3071,29 @@
             });
             
             // Update summary
-            document.querySelector('.summary-row:nth-child(1) span:last-child').textContent = formatPrice(subtotal);
-            document.querySelector('.summary-total span:last-child').textContent = formatPrice(subtotal - 500000 + 5000);
+            const discount = subtotal > 3000000 ? 500000 : 0;
+            const fee = 5000;
+            const total = subtotal - discount + fee;
+            
+            cartItemCount.textContent = `${cartItems.reduce((total, item) => total + item.quantity, 0)} item`;
+            cartSubtotal.textContent = formatPrice(subtotal);
+            cartDiscount.textContent = `-${formatPrice(discount)}`;
+            cartFee.textContent = formatPrice(fee);
+            cartTotal.textContent = formatPrice(total);
         }
 
         // Update cart item quantity
-        function updateCartItemQuantity(productId, change) {
+        function updateCartItemQuantity(productId, change, newValue = null) {
             const item = cartItems.find(item => item.productId === productId);
             if (!item) return;
             
-            const newQuantity = item.quantity + change;
+            let newQuantity;
+            if (newValue !== null) {
+                newQuantity = parseInt(newValue);
+            } else {
+                newQuantity = item.quantity + change;
+            }
+            
             if (newQuantity < 1) {
                 removeFromCart(productId);
                 return;
@@ -2444,13 +3102,17 @@
             item.quantity = newQuantity;
             updateCartCount();
             updateCartPage();
+            saveCart();
         }
 
         // Remove item from cart
         function removeFromCart(productId) {
-            cartItems = cartItems.filter(item => item.productId !== productId);
-            updateCartCount();
-            updateCartPage();
+            if (confirm('Apakah Anda yakin ingin menghapus produk ini dari keranjang?')) {
+                cartItems = cartItems.filter(item => item.productId !== productId);
+                updateCartCount();
+                updateCartPage();
+                saveCart();
+            }
         }
 
         // Buy now (direct checkout)
@@ -2476,6 +3138,136 @@
             } else if (page === 'home') {
                 document.querySelector('.main-container').classList.remove('hidden');
                 showCategory('all');
+            } else if (page === 'wishlist') {
+                alert('Halaman wishlist akan ditampilkan di sini.');
+            }
+        }
+
+        // Show help center modal
+        function showHelpCenter() {
+            helpCenterModal.classList.add('active');
+        }
+
+        // Send message in help center
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message to chat
+            addChatMessage(message, 'user');
+            
+            // Process message and get bot response
+            const botResponse = getBotResponse(message);
+            
+            // Add bot response after a short delay
+            setTimeout(() => {
+                addChatMessage(botResponse, 'bot');
+            }, 500);
+            
+            // Clear input
+            input.value = '';
+        }
+
+        // Add message to chat
+        function addChatMessage(message, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.className = `chat-message ${sender}`;
+            messageElement.textContent = message;
+            
+            chatContainer.appendChild(messageElement);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            // Save to chat history
+            chatHistory.push({ sender, message });
+        }
+
+        // Get bot response based on user message
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('pembayaran') || lowerMessage.includes('bayar')) {
+                return helpResponses.pembayaran;
+            } else if (lowerMessage.includes('pengiriman') || lowerMessage.includes('kirim')) {
+                return helpResponses.pengiriman;
+            } else if (lowerMessage.includes('garansi') || lowerMessage.includes('jaminan')) {
+                return helpResponses.garansi;
+            } else if (lowerMessage.includes('refund') || lowerMessage.includes('pengembalian')) {
+                return helpResponses.refund;
+            } else if (lowerMessage.includes('topup') || lowerMessage.includes('top up')) {
+                return helpResponses.topup;
+            } else if (lowerMessage.includes('akun') || lowerMessage.includes('login')) {
+                return helpResponses.akun;
+            } else {
+                return helpResponses.default;
+            }
+        }
+
+        // Show feedback modal
+        function showFeedbackModal() {
+            currentRating = 0;
+            // Reset stars
+            document.querySelectorAll('.rating-star').forEach(star => {
+                star.classList.remove('active');
+            });
+            
+            // Clear form
+            document.getElementById('feedback-text').value = '';
+            document.getElementById('feedback-email').value = '';
+            
+            feedbackModal.classList.add('active');
+        }
+
+        // Set rating stars
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.querySelectorAll('.rating-star');
+            
+            stars.forEach((star, index) => {
+                star.classList.toggle('active', index < rating);
+            });
+        }
+
+        // Submit feedback
+        function submitFeedback(event) {
+            event.preventDefault();
+            
+            const feedbackText = document.getElementById('feedback-text').value;
+            const email = document.getElementById('feedback-email').value;
+            
+            if (!feedbackText) {
+                alert('Silakan isi ulasan Anda terlebih dahulu.');
+                return;
+            }
+            
+            if (currentRating === 0) {
+                alert('Silakan beri rating terlebih dahulu.');
+                return;
+            }
+            
+            // In a real app, you would send this data to your server
+            console.log('Feedback submitted:', {
+                rating: currentRating,
+                text: feedbackText,
+                email: email || 'No email provided'
+            });
+            
+            alert('Terima kasih atas ulasan Anda! Ulasan telah dikirim.');
+            closeModal();
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        }
+
+        // Load cart from localStorage
+        function loadCart() {
+            const savedCart = localStorage.getItem('cartItems');
+            if (savedCart) {
+                cartItems = JSON.parse(savedCart);
+                updateCartCount();
             }
         }
 
